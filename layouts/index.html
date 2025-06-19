@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Zach Wong</title>
+  <link rel="stylesheet" href="/themes/archie/assets/css/main.css">
+  <style>
+    * {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    }
+    
+    html {
+        color: #232333;
+        font-family: 'Roboto Mono', monospace;
+        font-size: 1.12em;
+        line-height: 1.6em;
+    }
+    body { display: block; margin: 8px auto; max-width: 1280px; }
+
+    a {
+    border-bottom: 3px solid red;
+    color: inherit;
+    text-decoration: none;
+    }
+    a:hover {
+        background-color: navy;
+        color: white;
+    }
+
+    li, dd { font-family: 'Fira Sans', sans-serif; }
+    p { font-family: 'Fira Sans', sans-serif; line-height: 1.5; }
+    hr { border: none; height: 2px; background-color: lightgrey; width: 100%; margin: 30px auto; }
+    
+    .landing {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height:100vh; min-height:100dvh;
+      text-align: center;
+    }
+    svg { width: 100%; height: auto; }
+    .svg-container { width: 100%; max-width: 400px; display: inline-block; }
+    .separator { letter-spacing: -9px; }
+    
+    .links-container { font-size: 24px; margin: 20px; }
+    .links-container a { text-decoration: none; margin: 0 10px; }
+    
+    .pfeiff { display: block; max-height: 640px; margin: 0 auto; border-radius: 0.4em; }
+    .caption { text-align: center; font-style: italic; }
+    
+    .contact-info {
+        display: grid;
+        grid-template-columns: max-content auto;
+        gap: 0.25rem 1em; /* vertical and horizontal gaps */
+    }
+    .contact-info dt { font-weight: bold; }
+    .contact-info dl { font-family: 'Fira Sans', sans-serif; margin: 0;}
+
+    .link-to-writing { width: fit-content; margin: 0 auto; }
+    
+    .writing-list dt { margin-bottom: 0.75em; }
+    .writing-list dd { margin-bottom: 1.5em;}
+
+  </style>
+</head>
+<body>
+  <div class="landing">
+    <div class="svg-container">
+      <!-- gm block-letter svg -->
+        <!-- with https://virtual-graph-paper.com/ -->
+        <svg viewBox="0 0 280 90" xmlns="http://www.w3.org/2000/svg" aria-label="gm logo">
+            <!-- g -->
+            <rect x="0"  y="0"  width="120" height="20" fill="#232333"/>
+            <rect x="0"  y="20" width="40" height="20" fill="#232333"/>
+            <rect x="0"  y="40" width="120" height="20" fill="#232333"/>
+            <rect x="80" y="20" width="40" height="20" fill="#232333"/>
+            <rect x="80" y="60" width="40" height="10" fill="#232333"/>
+            <rect x="0" y="70" width="80" height="20" fill="#232333"/>
+        
+            <!-- m -->
+            <rect x="160" y="0" width="100" height="20" fill="#232333"/>
+            <rect x="140" y="20" width="30" height="40" fill="#232333"/>
+            <rect x="190" y="0" width="40" height="60" fill="#232333"/>
+            <rect x="250" y="20" width="30" height="40" fill="#232333"/>
+        </svg>  
+    </div>
+    <div class="links-container">
+      <a href="#about">About</a><span class="separator">|</span>
+      <a href="#contact">Contact</a><span class="separator">|</span>
+      <a href="#writing">Writing</a><span class="separator">|</span>
+      <!-- TODO: MAKE SURE THIS WORKS! -->
+      <a href="/projects">Projects</a>
+    </div>
+  </div>
+
+  <hr />
+  <h2 id="about">About Me</h2>
+  <p>I work at Uniswap Labs in Strategy and Operations. Uniswap Labs builds software that enables anyone to create and access markets, for any asset, at any time.</p>
+  <p>I’ve previously worked (reverse chronologically):</p>
+  <ul>
+    <li>at Circle on public policy,</li>
+    <li>at the U.S. Consumer Financial Protection Bureau on payments and retail banking policy, and</li>
+    <li>for Congressman Jason Smith of Missouri.</li>
+  </ul>
+    <p>I graduated cum laude from Claremont McKenna College, majoring in Philosophy, Politics, and Economics. I wrote my thesis on conceptions of property rights at the time of the American Founding.</p>
+  <h3>Past Work - Professional</h3>
+  <ul>
+    <li>I helped construct the business strategy for Unichain, a new L2 designed for DeFi. I am a coauthor on <a href="https://docs.unichain.org/whitepaper.pdf">the Unichain whitepaper.</a> I explained Unichain at <a href="https://www.youtube.com/watch?v=eFHqbtXR_2c">ETHDenver 2025</a>.</li>
+    <li>I wrote Circle’s <a href="https://www.sec.gov/comments/s7-02-22/s70222-204159-410923.pdf">2023 comment letter to the SEC</a> on DeFi regulation, and I was the lead author on <a href="https://www.sec.gov/comments/s7-04-23/s70423-187959-342983.pdf">some</a> <a href="https://www.bis.org/bcbs/publ/comments/d533/cif.pdf">other</a> <a href="https://www.fsb.org/wp-content/uploads/Circle.pdf">letters</a>.</li>
+    <li>At the CFPB, I contributed to the <a href="https://www.federalregister.gov/documents/2020/11/06/2020-23723/consumer-access-to-financial-records">Dodd-Frank Section 1033 ANPR</a> and the <a href="https://www.regulations.gov/document/CFPB-2021-0017-0097">Big Tech information orders.</a></li>
+    <li>At Claremont McKenna, I was one of four student contributors to the college's <a href="https://www.cmc.edu/strategy/cmc-strategy-report-2019">2019 Strategy Committee</a>, which developed and published a strategic review ahead of a new capital campaign that has raised over $1 billion.</li>
+  </ul>
+  <h3>Past Work - Personal</h3>
+  <ul>
+    <li>I <a href="https://www.zachrwong.info/writing">regularly write</a> about crypto, public policy, personal projects, and other topics.</li>
+    <li>I don't work as a developer, but <a href="https://github.com/mud2monarch">I code and contribute</a> when I can.</a> See also <a href="https://www.zachrwong.info/projects">projects</a>.</li>
+    <li>I tweet <a href="https://x.com/mud2monarch">@mud2monarch</a>. I started my Twitter account as a pseudonymous profile named “Gyges Lydias.” Gyges is <a href="https://en.wikipedia.org/wiki/Ring_of_Gyges">a character</a> in Plato’s Republic.</li>
+  </ul>
+  <h3>Hobbies</h3>
+  <ul>
+    <li>I enjoy endurance sports including backcountry ski mountaineering, trail running, and cycling. I used to live in Salt Lake City, Utah.</li>
+    <li>I participate in CrossFit, follow Formula 1 racing, and watch mixed martial arts.</li>
+    <li>I cook regularly and enjoy fine food, coffee, and wine.</li>
+  </ul>
+  <br />
+  <img class="pfeiff" src="pfeiff_photo.webp">
+  <p class="caption">Rappelling into the Northwest Couloir of the Pfeifferhorn. Salt Lake City, 2022.</p>
+  
+  <hr />
+  
+  <h2 id="contact">Contact</h2>
+  <dl class="contact-info">
+    <dt>Twitter</dt>
+    <dd><a href="https://x.com/mud2monarch">@mud2monarch</a></dd>
+    <dt>LinkedIn</dt>
+    <dd><a href="https://www.linkedin.com/in/zachrwong/">zachrwong</a></dd>
+    <dt>GitHub</dt>
+    <dd><a href="https://github.com/mud2monarch/">mud2monarch</a></dd>
+    <dt>Email</dt>
+    <dd>zach (a) zachrwong.info</dd>
+    <dt>Location</dt>
+    <dd>New York City</dd>
+  </dl>
+  <hr />
+  <h2 id="writing">Writing</h2>
+  <p>I enjoy writing long-form articles about crypto, public policy, and other topics. Here are some of my favorite pieces:</p>
+  <dl class="writing-list">
+    <dt><a href="https://paragraph.com/@mud2monarch/believe-in-something-real">02/2025: Believe in Something Real</a></dt>
+    <dd>An exhortation to build and believe in something real.</dd>
+    <dt><a href="https://paragraph.com/@mud2monarch/disaggregating-decentralization">01/2025: Disaggregating Decentralization</a></dt>
+    <dd>I tease apart the term "decentralization" and identify the goods about which we actually care.</dd>
+    <dt><a href="A comprehensive explanation of SAB 121 and how it prevents safe crypto custody">07/2023: A comprehensive explanation of SAB 121 and how it prevents safe crypto custody</a></dt>
+    <dd>My most popular piece ever. A long but consumable explanation of the SEC's Staff Accounting Bulletin 121, which at the time was an arcane, niche topic in crypto public policy.</dd>
+    <dt><a href="https://mud2monarch.medium.com/cryptography-to-cryptocurrency-a707079b898c">07/2022: Cryptography to Cryptocurrency | Lessons on Privacy and Policy from Steven Levy’s “Crypto”</a></dt>
+    <dd>A book review that covers striking parallels between the history of cryptography development and regulation and today's events in crypto.</dd>
+  </dl>
+  <h3 class="link-to-writing"><a href="/writing">LINK TO ALL WRITING</a></h3>
+  <hr />
+  <p class="footer">content © 2025 zach wong | built with <a href="https://gohugo.io">hugo</a> and <a href="https://github.com/mud2monarch/zachrwong-info">mit open source</a></p>
+</body>
+</html>

@@ -1,5 +1,31 @@
-baseURL = 'https://example.org/'
+baseURL = 'https://zachrwong.info/'
 languageCode = 'en-us'
-title = 'My New Hugo Site'
-
+title = 'Zach Wong'
+copyright = "content © 2025 zach wong"
 theme = "archie"
+pygmentsstyle = "monokai"
+pygmentscodefences = true
+pygmentscodefencesguesssyntax = true
+
+[params]
+    subtitle = "Personal website for Zach Wong."
+    mode="light"
+    katex = true
+
+[params.meta]
+    favicon = true
+
+[[params.social]]
+name = "GitHub"
+icon = "github"
+url = "https://github.com/mud2monarch/"
+
+[[params.social]]
+name = "Twitter"
+icon = "twitter"
+url = "https://x.com/mud2monarch/"
+
+[[params.social]]
+name = "LinkedIn"
+icon = "linkedin"
+url = "https://www.linkedin.com/in/zachrwong/"
