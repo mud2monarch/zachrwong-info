@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Policy on Zach Wong</title>
+    <link>http://localhost:1313/tags/policy/</link>
+    <description>Recent content in Policy on Zach Wong</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <copyright>content © 2025 zach wong</copyright>
+    <lastBuildDate>Sun, 26 Jan 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/policy/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Disaggregating Decentralization</title>
+      <link>http://localhost:1313/posts/disaggregating-decentralization/</link>
+      <pubDate>Sun, 26 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/disaggregating-decentralization/</guid>
+      <description>&lt;p&gt;“Decentralization” is an ubiquitous word in the discussion, marketing, and governance of crypto, but I find it to be confusing — and confused. Sometimes people tout decentralization as a primary benefit when they seem to care about a different characteristic instead. I’m not sure decentralization is important for its own sake; instead, it seems good &lt;em&gt;for other things&lt;/em&gt;. I think we should speak simply about those other things, rather than using “decentralization” as a catch-all.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Four Takeaways from the Fourth NY Fed Conference on Fintech</title>
+      <link>http://localhost:1313/posts/four-takeaways-ny-fed-2023/</link>
+      <pubDate>Sun, 01 Oct 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/four-takeaways-ny-fed-2023/</guid>
+      <description>&lt;p&gt;On September 29th, &lt;a href=&#34;https://www.newyorkfed.org/research/conference/2023/Fintech&#34;&gt;the Federal Reserve Bank of New York hosted a conference on fintech&lt;/a&gt; with a special focus on the use of artificial intelligence and digital assets in financial services. I attended in-person and thought the agenda was excellent in both areas. In particular, I thought the morning presentations on crypto market structure were some of the best research and discussion I had seen in a long time. In this post, I record four takeaways from the conference:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Visa&#39;s strategic opportunity to win a world of blockchain payments</title>
+      <link>http://localhost:1313/posts/visa-opportunity-blockchain-payments/</link>
+      <pubDate>Sun, 20 Aug 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/visa-opportunity-blockchain-payments/</guid>
+      <description>&lt;p&gt;One dominant narrative of blockchain technology is that it will disintermediate traditional financial services, leading to the demise of traditional firms. While I agree with the premise, I disagree with the conclusion. Traditional firms are very well-positioned to take market share from their current competitors and dominate the next two decades of financial services. In this article, I conduct a SWOT analysis for Visa and describe the strategic opportunity for the payments network in a world where public blockchains are ubiquitously adopted.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>A comprehensive explanation of SAB 121 and how it prevents safe crypto custody</title>
+      <link>http://localhost:1313/posts/comprehensive-explanation-sab-121/</link>
+      <pubDate>Mon, 07 Aug 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/comprehensive-explanation-sab-121/</guid>
+      <description>&lt;p&gt;Given recent wallet &lt;a href=&#34;https://www.coindesk.com/tech/2023/06/05/atomic-wallet-users-hacked-for-35m-worth-of-bitcoin-ether-tether-and-other-tokens/&#34;&gt;hacks&lt;/a&gt;, extensive &lt;a href=&#34;https://www.reuters.com/business/ftx-start-us-bankruptcy-proceedings-ceo-exit-2022-11-11/&#34;&gt;counterparty risk&lt;/a&gt;, and &lt;a href=&#34;https://globalnews.ca/news/9030613/lost-bitcoin-landfill-search-newport-james-howells/&#34;&gt;ubiquitous stories of lost funds&lt;/a&gt; in the crypto-asset industry, the proliferation of high-quality custody services should be a policy priority for U.S. lawmakers. Unfortunately, when it comes to the Securities and Exchange Commission’s (SEC’s) &lt;a href=&#34;https://www.sec.gov/oca/staff-accounting-bulletin-121&#34;&gt;Staff Accounting Bulletin No. 121&lt;/a&gt; (SAB 121), that doesn’t appear to be the case. The guidance breaks from established regulatory and accounting standards and prevents banks—who could be high-quality crypto custodians—from offering those services to consumers.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>New developments in crypto payments policy, Consensus 2023</title>
+      <link>http://localhost:1313/posts/new-developments-in-crypto-payments-policy/</link>
+      <pubDate>Sat, 29 Apr 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/new-developments-in-crypto-payments-policy/</guid>
+      <description>&lt;p&gt;The most important regulatory news from Consensus 2023 will likely go uncovered. In an interview announcing a new product at Consensus, PayPal SVP Jose Fernandez da Ponte said that PayPal currently covers $50,000 of consumer liability for crypto transfers, which is in line with the requirements of the CFPB’s Regulation E.&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;&#xA;&lt;p&gt;Enforcing Reg E for crypto payments has always been the most natural way for the CFPB to start regulating the crypto market, but the agency has to this date declined to ever do so (to my knowledge). Therefore, I’m always on the lookout for new developments in crypto-Reg E. PayPal’s voluntary semi-compliance is an important development in the state of crypto consumer payments regulation.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Notes from the 6/13/22 Omarova-Brooks Conversation at NCRC</title>
+      <link>http://localhost:1313/posts/omarova-brooks-conversation/</link>
+      <pubDate>Wed, 24 Aug 2022 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/omarova-brooks-conversation/</guid>
+      <description>&lt;figure class=&#34;img-caption&#34;&gt;&lt;img src=&#34;http://localhost:1313/2022/brooks_imageONE.webp&#34;&#xA;    alt=&#34;Caption this.&#34;&gt;&lt;figcaption&gt;&#xA;      &lt;p&gt;Caption this.&lt;/p&gt;&#xA;    &lt;/figcaption&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;On June 13, 2022, former acting Comptroller of the Currency Brian Brooks and law professor Saule Omarova participated in a panel hosted by the National Community Reinvestment Coalition (NCRC) titled &lt;a href=&#34;https://www.youtube.com/watch?v=ihl8nFxgL8Y&#34;&gt;“Discerning a Regulatory Approach to Crypto Currencies and Digital Assets.”&lt;/a&gt; Given the panelists, I thought this would be an enlightening conversation. Brian Brooks is a capable and insightful proponent of pro-innovation crypto regulation, and Professor Omarova is a well-respected progressive financial scholar. In particular, it seemed like a useful opportunity to hear an unadulterated, progressive perspective on crypto regulation (i.e., as opposed to political speech from politicians such as Senator Warren).&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Cryptography to Cryptocurrency: Lessons on Privacy and Policy from Steven Levy’s “Crypto”</title>
+      <link>http://localhost:1313/posts/crypto-lessons-from-levy/</link>
+      <pubDate>Thu, 28 Jul 2022 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/crypto-lessons-from-levy/</guid>
+      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;The practice (of preserving anonymity) was crucial in the formation of the United States itself, and was arguably as American as apple pie. As cypherpunk historians loved to point out, the model for the Ender’s Game debate may have been the Federalist Papers, with parts written by James Madison, John Jay, and Alexander Hamilton but published under the pseudonym Publius. And when Thomas Paine wrote Common Sense, he originally signed it “An Englishman.” As the Supreme Court would note, “Anonymous pamphlets, leaflets, brochures, and even books have played an important role in the progress of mankind,” a role the Court has sustained in consistent ruling.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>My column in Bitcoin Magazine</title>
+      <link>http://localhost:1313/posts/bitcoin-magazine-column/</link>
+      <pubDate>Wed, 16 Mar 2022 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/bitcoin-magazine-column/</guid>
+      <description>&lt;p&gt;Following tweets on the subject, I was invited to write the following column for Bitcoin Magazine. I think it’s important to explain DC goings-on to cryptonative audiences, so I accepted the invitation.&lt;/p&gt;&#xA;&lt;p&gt;You can read the article on Bitcoin Magazine&amp;rsquo;s main site &lt;a href=&#34;https://bitcoinmagazine.com/culture/us-treasury-bitcoin-not-illicit?source=post_page-----b11ed306fa73---------------------------------------&#34;&gt;here&lt;/a&gt;. I’ve republished the piece (with my original title, syntax, and conventions) below.&lt;/p&gt;&#xA;&lt;p&gt;&lt;em&gt;These are my independent thoughts and do not necessarily represent the views of my employer.&lt;/em&gt;&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h3 id=&#34;bitcoins-paltry-use-for-illicit-activity-is-now-indisputable&#34;&gt;Bitcoin’s Paltry Use for Illicit Activity is now Indisputable&lt;/h3&gt;&#xA;&lt;p&gt;It’s time to take “illicit activity” off the FUD dice. Earlier this month, the US Treasury Department published reports that said, definitively, the use of bitcoin and other cryptocurrencies for illicit activity is far outstripped by the use of traditional assets. Critics can no longer credibly present the specter of illicit activity to beat back bitcoin; the foremost experts in the world say it is not a major threat.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>A Galaxy Far, Far Away: The Cryptonative’s Guide to US Financial Regulators</title>
+      <link>http://localhost:1313/posts/galaxy-far-far-away-regulators/</link>
+      <pubDate>Wed, 09 Mar 2022 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/galaxy-far-far-away-regulators/</guid>
+      <description>&lt;figure class=&#34;img-caption&#34;&gt;&lt;img src=&#34;http://localhost:1313/2022/galaxy_imageONE.webp&#34;&#xA;    alt=&#34;A New Hope: Satoshi Nakamoto, center, surveys the financial services landscape in 2008. He sees central banks debasing the currency, banks lending money in waves of credit bubbles, and massive overhead costs that make micropayments impossible. He creates Bitcoin, a 3720-to-1 longshot to start a neutral, distributed monetary system with no single point of failure.&#34;&gt;&lt;figcaption&gt;&#xA;      &lt;p&gt;&lt;strong&gt;A New Hope&lt;/strong&gt;: Satoshi Nakamoto, center, surveys the financial services landscape in 2008. He sees central banks debasing the currency, banks lending money in waves of credit bubbles, and massive overhead costs that make micropayments impossible. He creates Bitcoin, a 3720-to-1 longshot to start a neutral, distributed monetary system with no single point of failure.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Comparing and contrasting PayPal balances with USDC from first principles</title>
+      <link>http://localhost:1313/posts/paypal-balances-usdc-comparison/</link>
+      <pubDate>Thu, 03 Feb 2022 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/paypal-balances-usdc-comparison/</guid>
+      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;For if the people are not equal, they will not have equal things. Rather, from this arises fights and accusations, either when people who are equal have or are distributed unequal things, or when people who are unequal have or are distributed equal things…&lt;/p&gt;&#xA;&lt;p&gt;&lt;em&gt;The Nicomachean Ethics&lt;/em&gt;, 1131a, trans. Bartlett and Collins&lt;/p&gt;&lt;/blockquote&gt;&#xA;&lt;p&gt;Since stablecoins have started to receive scrutiny by US federal regulators, it’s been increasingly popular to compare them to other types of nonbank digital dollars such as PayPal, Cash App, or Venmo balances. This comparison makes intuitive sense because (centralized) stablecoins are a dollar-denominated corporate liability that can be used on a proprietary payments network. If the products are very similar, there exists a nice template for regulation, provided a “like for like” standard is applied. In this post, I compare and contrast PayPal balances with USDC and provide preliminary thoughts on regulatory steps.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>The Fed&#39;s CBDC Dilemma</title>
+      <link>http://localhost:1313/posts/fed-cbdc-dilemma/</link>
+      <pubDate>Sat, 22 Jan 2022 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/fed-cbdc-dilemma/</guid>
+      <description>&lt;p&gt;&lt;figure class=&#34;img-caption&#34;&gt;&lt;img src=&#34;http://localhost:1313/2022/cbdc_dolla_on_blockchain.webp&#34;&#xA;    alt=&#34;A CBDC is a government-issued dollar on a blockchain.&#34; width=&#34;70%&#34;&gt;&lt;figcaption&gt;&#xA;      &lt;p&gt;A CBDC is a government-issued dollar on a blockchain.&lt;/p&gt;&#xA;    &lt;/figcaption&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;Earlier today, the Federal Reserve Board released its much-anticipated &lt;a href=&#34;https://www.federalreserve.gov/publications/money-and-payments-discussion-paper.htm&#34;&gt;discussion paper&lt;/a&gt; on central bank digital currency. To be frank, little was new: Chair Powell &lt;a href=&#34;https://www.nytimes.com/2021/03/22/business/jerome-powell-says-the-fed-wont-issue-a-digital-currency-without-congressional-approval.html&#34;&gt;has already said&lt;/a&gt; that the Fed will not develop or deploy a US CBDC without congressional approval. And Fed staff and governors &lt;a href=&#34;https://www.federalreserve.gov/newsevents/speech/waller20210805a.htm&#34;&gt;have&lt;/a&gt; &lt;a href=&#34;https://www.federalreserve.gov/newsevents/speech/quarles20210628a.htm&#34;&gt;already&lt;/a&gt; &lt;a href=&#34;https://libertystreeteconomics.newyorkfed.org/2021/04/hey-economist-whats-the-case-for-central-bank-digital-currencies/&#34;&gt;done&lt;/a&gt; &lt;a href=&#34;https://www.federalreserve.gov/newsevents/speech/files/brainard20210524a.pdf&#34;&gt;a good job&lt;/a&gt; &lt;a href=&#34;https://www.federalreserve.gov/econres/notes/feds-notes/preconditions-for-a-general-purpose-central-bank-digital-currency-20210224.htm&#34;&gt;explaining&lt;/a&gt; some of the pros, cons, and potential for a US CBDC. Perhaps the most novel announcement was a concrete outline of the Fed’s vision for a CBDC, which it said would most effectively be “privacy-protected, intermediated, widely transferable, and identity-verified.”&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>What happens to policy proposals, anyways?</title>
+      <link>http://localhost:1313/posts/what-happens-to-policy-proposals/</link>
+      <pubDate>Sun, 21 Nov 2021 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/what-happens-to-policy-proposals/</guid>
+      <description>&lt;figure class=&#34;img-caption&#34;&gt;&lt;img src=&#34;http://localhost:1313/2021/proposals_imageONE.webp&#34;&#xA;    alt=&#34;A crypto user contemplates a future in which he and his frens have shirked informed, productive engagement with policymakers, who then pass legislation and regulations that disfavor crypto.&#34;&gt;&lt;figcaption&gt;&#xA;      &lt;p&gt;A crypto user contemplates a future in which he and his frens have shirked informed, productive engagement with policymakers, who then pass legislation and regulations that disfavor crypto.&lt;/p&gt;&#xA;    &lt;/figcaption&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&#xA;&lt;div class=&#39;callout callout-custom&#39; style=&#39;background-color: transparent; border: 3px solid #d340e0;&#39;&gt;&#xA;  &lt;div class=&#34;callout-inner&#34;&gt;&#xA;    &#xA;    👀 &lt;u&gt;Note June 2024&lt;/u&gt;&#xA;    &lt;br /&gt;&#xA;    I wrote this pseudonymously when I worked at the CFPB, hence some of the disclaimers that may seem weird now (which were required by my agreement with my agency’s ethics office). Everything here still reflects my views though!.&#xA;    &#xA;    &lt;/div&gt;&#xA;&lt;/div&gt;&#xA;&#xA;&lt;p&gt;Several prominent crypto firms recently released proposals for how the US government should regulate cryptocurrencies and other related products. &lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt; While the proposals created buzz on Twitter and &lt;a href=&#34;https://www.wsj.com/articles/new-approach-regulating-crypto-bitcoin-coinbase-armstrong-digital-asset-policy-proposal-11634226117&#34;&gt;traditional media&lt;/a&gt;, I think it’s unclear to &lt;a href=&#34;https://twitter.com/jeffjohnroberts/status/1460639126869450756?s=20&#34;&gt;most people&lt;/a&gt; — to put it generously — what the actual effect of such policy proposals will be. In this post, I hope to answer this question and demystify the US federal policymaking process from the perspective of an insider.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

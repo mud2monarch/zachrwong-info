@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Personal Projects on Zach Wong</title>
+    <link>http://localhost:1313/tags/personal-projects/</link>
+    <description>Recent content in Personal Projects on Zach Wong</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <copyright>content © 2025 zach wong</copyright>
+    <lastBuildDate>Fri, 23 May 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/personal-projects/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hackathon project: extracting BigQuery table schemas for use with an LLM</title>
+      <link>http://localhost:1313/posts/uni-schema-tool-demo/</link>
+      <pubDate>Fri, 23 May 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/uni-schema-tool-demo/</guid>
+      <description>&lt;p&gt;At Uniswap Labs’ biannual onsites, we dedicate most of the week to a company hackathon. It’s a time to think creatively, work on personal projects related to work, and collaborate with others. This time around, I wrote a short script to gather and coalesce BigQuery table schemas into a text document for use with an LLM. An executable, source code, and a usage guide are available on &lt;a href=&#34;https://github.com/mud2monarch/personal-projects/tree/main/uni-schema&#34;&gt;my Github&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;h3 id=&#34;the-problem-to-solve&#34;&gt;&lt;strong&gt;The problem to solve&lt;/strong&gt;&lt;/h3&gt;&#xA;&lt;p&gt;As part of my work, I regularly use LLMs to help with data queries. We have a broad set of high-quality onchain and offchain data stored in Google BigQuery, and I write SQL to access and transform the data into actionable insights. LLMs — e.g., Claude, ChatGPT — are very helpful for accelerating that work because they help me quickly iterate on my code.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

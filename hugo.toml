@@ -10,7 +10,7 @@ pygmentscodefencesguesssyntax = true
 [params]
     subtitle = "Personal website for Zach Wong."
     mode="light"
-    katex = true
+    katex = false
 
 [params.meta]
     favicon = true
@@ -29,3 +29,10 @@ url = "https://x.com/mud2monarch/"
 name = "LinkedIn"
 icon = "linkedin"
 url = "https://www.linkedin.com/in/zachrwong/"
+
+[taxonomies]
+    tag = 'tags'
+
+[services]
+  [services.googleAnalytics]
+    id = 'G-V8J51GTYGR'

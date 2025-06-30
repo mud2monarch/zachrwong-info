@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Stablecoins on Zach Wong</title>
+    <link>http://localhost:1313/tags/stablecoins/</link>
+    <description>Recent content in Stablecoins on Zach Wong</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <copyright>content © 2025 zach wong</copyright>
+    <lastBuildDate>Sat, 29 Apr 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/stablecoins/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>New developments in crypto payments policy, Consensus 2023</title>
+      <link>http://localhost:1313/posts/new-developments-in-crypto-payments-policy/</link>
+      <pubDate>Sat, 29 Apr 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/new-developments-in-crypto-payments-policy/</guid>
+      <description>&lt;p&gt;The most important regulatory news from Consensus 2023 will likely go uncovered. In an interview announcing a new product at Consensus, PayPal SVP Jose Fernandez da Ponte said that PayPal currently covers $50,000 of consumer liability for crypto transfers, which is in line with the requirements of the CFPB’s Regulation E.&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;&#xA;&lt;p&gt;Enforcing Reg E for crypto payments has always been the most natural way for the CFPB to start regulating the crypto market, but the agency has to this date declined to ever do so (to my knowledge). Therefore, I’m always on the lookout for new developments in crypto-Reg E. PayPal’s voluntary semi-compliance is an important development in the state of crypto consumer payments regulation.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Cryptography to Cryptocurrency: Lessons on Privacy and Policy from Steven Levy’s “Crypto”</title>
+      <link>http://localhost:1313/posts/crypto-lessons-from-levy/</link>
+      <pubDate>Thu, 28 Jul 2022 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/crypto-lessons-from-levy/</guid>
+      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;The practice (of preserving anonymity) was crucial in the formation of the United States itself, and was arguably as American as apple pie. As cypherpunk historians loved to point out, the model for the Ender’s Game debate may have been the Federalist Papers, with parts written by James Madison, John Jay, and Alexander Hamilton but published under the pseudonym Publius. And when Thomas Paine wrote Common Sense, he originally signed it “An Englishman.” As the Supreme Court would note, “Anonymous pamphlets, leaflets, brochures, and even books have played an important role in the progress of mankind,” a role the Court has sustained in consistent ruling.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>A Galaxy Far, Far Away: The Cryptonative’s Guide to US Financial Regulators</title>
+      <link>http://localhost:1313/posts/galaxy-far-far-away-regulators/</link>
+      <pubDate>Wed, 09 Mar 2022 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/galaxy-far-far-away-regulators/</guid>
+      <description>&lt;figure class=&#34;img-caption&#34;&gt;&lt;img src=&#34;http://localhost:1313/2022/galaxy_imageONE.webp&#34;&#xA;    alt=&#34;A New Hope: Satoshi Nakamoto, center, surveys the financial services landscape in 2008. He sees central banks debasing the currency, banks lending money in waves of credit bubbles, and massive overhead costs that make micropayments impossible. He creates Bitcoin, a 3720-to-1 longshot to start a neutral, distributed monetary system with no single point of failure.&#34;&gt;&lt;figcaption&gt;&#xA;      &lt;p&gt;&lt;strong&gt;A New Hope&lt;/strong&gt;: Satoshi Nakamoto, center, surveys the financial services landscape in 2008. He sees central banks debasing the currency, banks lending money in waves of credit bubbles, and massive overhead costs that make micropayments impossible. He creates Bitcoin, a 3720-to-1 longshot to start a neutral, distributed monetary system with no single point of failure.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Comparing and contrasting PayPal balances with USDC from first principles</title>
+      <link>http://localhost:1313/posts/paypal-balances-usdc-comparison/</link>
+      <pubDate>Thu, 03 Feb 2022 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/paypal-balances-usdc-comparison/</guid>
+      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;For if the people are not equal, they will not have equal things. Rather, from this arises fights and accusations, either when people who are equal have or are distributed unequal things, or when people who are unequal have or are distributed equal things…&lt;/p&gt;&#xA;&lt;p&gt;&lt;em&gt;The Nicomachean Ethics&lt;/em&gt;, 1131a, trans. Bartlett and Collins&lt;/p&gt;&lt;/blockquote&gt;&#xA;&lt;p&gt;Since stablecoins have started to receive scrutiny by US federal regulators, it’s been increasingly popular to compare them to other types of nonbank digital dollars such as PayPal, Cash App, or Venmo balances. This comparison makes intuitive sense because (centralized) stablecoins are a dollar-denominated corporate liability that can be used on a proprietary payments network. If the products are very similar, there exists a nice template for regulation, provided a “like for like” standard is applied. In this post, I compare and contrast PayPal balances with USDC and provide preliminary thoughts on regulatory steps.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>The Fed&#39;s CBDC Dilemma</title>
+      <link>http://localhost:1313/posts/fed-cbdc-dilemma/</link>
+      <pubDate>Sat, 22 Jan 2022 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/fed-cbdc-dilemma/</guid>
+      <description>&lt;p&gt;&lt;figure class=&#34;img-caption&#34;&gt;&lt;img src=&#34;http://localhost:1313/2022/cbdc_dolla_on_blockchain.webp&#34;&#xA;    alt=&#34;A CBDC is a government-issued dollar on a blockchain.&#34; width=&#34;70%&#34;&gt;&lt;figcaption&gt;&#xA;      &lt;p&gt;A CBDC is a government-issued dollar on a blockchain.&lt;/p&gt;&#xA;    &lt;/figcaption&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;Earlier today, the Federal Reserve Board released its much-anticipated &lt;a href=&#34;https://www.federalreserve.gov/publications/money-and-payments-discussion-paper.htm&#34;&gt;discussion paper&lt;/a&gt; on central bank digital currency. To be frank, little was new: Chair Powell &lt;a href=&#34;https://www.nytimes.com/2021/03/22/business/jerome-powell-says-the-fed-wont-issue-a-digital-currency-without-congressional-approval.html&#34;&gt;has already said&lt;/a&gt; that the Fed will not develop or deploy a US CBDC without congressional approval. And Fed staff and governors &lt;a href=&#34;https://www.federalreserve.gov/newsevents/speech/waller20210805a.htm&#34;&gt;have&lt;/a&gt; &lt;a href=&#34;https://www.federalreserve.gov/newsevents/speech/quarles20210628a.htm&#34;&gt;already&lt;/a&gt; &lt;a href=&#34;https://libertystreeteconomics.newyorkfed.org/2021/04/hey-economist-whats-the-case-for-central-bank-digital-currencies/&#34;&gt;done&lt;/a&gt; &lt;a href=&#34;https://www.federalreserve.gov/newsevents/speech/files/brainard20210524a.pdf&#34;&gt;a good job&lt;/a&gt; &lt;a href=&#34;https://www.federalreserve.gov/econres/notes/feds-notes/preconditions-for-a-general-purpose-central-bank-digital-currency-20210224.htm&#34;&gt;explaining&lt;/a&gt; some of the pros, cons, and potential for a US CBDC. Perhaps the most novel announcement was a concrete outline of the Fed’s vision for a CBDC, which it said would most effectively be “privacy-protected, intermediated, widely transferable, and identity-verified.”&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

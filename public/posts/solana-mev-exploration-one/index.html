@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html><head lang="en"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>A short exploration of Solana MEV data - Zach Wong</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Data analysis of Solana MEV activity during September 2024." />
+	<meta property="og:image" content=""/>
+	<meta property="og:url" content="http://localhost:1313/posts/solana-mev-exploration-one/">
+  <meta property="og:site_name" content="Zach Wong">
+  <meta property="og:title" content="A short exploration of Solana MEV data">
+  <meta property="og:description" content="Data analysis of Solana MEV activity during September 2024.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2024-10-22T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-10-22T00:00:00+00:00">
+    <meta property="article:tag" content="Crypto">
+    <meta property="article:tag" content="Mev">
+    <meta property="article:tag" content="Data">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="A short exploration of Solana MEV data">
+  <meta name="twitter:description" content="Data analysis of Solana MEV activity during September 2024.">
+
+        <link href="http://localhost:1313/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css" rel="stylesheet">
+	
+
+	
+	<link rel="stylesheet" type="text/css" media="screen" href="http://localhost:1313/css/main.d85b563bb1a8492ec00be237efb339d6b716dba5cbccde815716282bc52ce9fa.css" />
+</head>
+<body>
+        <div class="content"><link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+<header>
+	<div class="main">
+		<a href="http://localhost:1313/">Zach Wong</a>
+	</div>
+	<nav>
+		
+		
+	</nav>
+</header>
+
+<main>
+  <article>
+    <div class="post-container">
+      
+      <div class="post-content">
+        
+        <div class="title">
+          <h1 class="title">A short exploration of Solana MEV data</h1>
+          <div class="meta">Posted on Oct 22, 2024</div>
+        </div>
+        
+        <section class="body">
+          <p><a href="https://tryghost.xyz/graph">Ghost</a> is a company that allows developers to create custom blockchain indexes using Solidity. They <a href="https://x.com/0xGhostLogs/status/1843770831245050159">recently published</a> a dataset that contains 1.06m Solana transactions from September 2024 that they identified as atomic arbitrage* transactions containing SOL/WSOL. This article quickly analyzes that dataset. Thanks to Ghost for making this available!</p>
+
+<div class='callout callout-custom' style='background-color: transparent; border: 3px solid #d340e0;'>
+  <div class="callout-inner">
+    
+    🕵️ <u>&#34;Atomic Arbitrage&#34;</u>
+    <br />
+    Atomic arbitrage is a type of arbitrage that takes place within a single set of transactions. For example, someone may notice that the SOL &lt;&gt; USDC and USDC &lt;&gt; USDT and USDT &lt;&gt; SOL prices provide an arbitrage opportunity, and closes it in a single block/slot. This would NOT include CEX-DEX arbitrage, which does not/cannot occur atomically.
+    
+    </div>
+</div>
+
+<p><em>The notebook for this article is available on <a href="https://github.com/mud2monarch/personal-projects/blob/main/Solana_atomic_arbs/Solana_atomic_arbs.ipynb">my Github.</a></em></p>
+<h3 id="background-and-dataset-schema">Background and Dataset Schema</h3>
+<p>As some background on the Solana network operation/MEV landscape, Jito Labs develops an alternative Solana node implementation that adds new features to the original &ldquo;Agave&rdquo; client developed by Solana Labs (<a href="https://www.theblock.co/post/275156/former-solana-labs-members-form-anza-developer-shop-prepare-to-unveil-agave-validator-client">now Anza</a>). The most relevant features for this article are the ability to submit transaction &ldquo;<a href="https://jito-labs.gitbook.io/mev/searcher-resources/bundles">bundles</a>,&rdquo; where the client executes transactions received sequentially and atomically, and add <a href="https://jito-foundation.gitbook.io/mev/jito-solana/features#:~:text=Bundles%20can%20contain%20tips%2C%20which%20allows%20users%20to%20tip%20validators%20for%20priority%20treatment.">Jito tips</a> to transactions, which are side payments for priority inclusion.</p>
+<p>Solana network validators can choose to run the Jito client rather than the Agave client, if they want to offer these features. They can also modify the client themselves, as it is open source. Likely because validators earn more revenue when they run the Jito client, 89% of Solana stake weight runs the Jito client as of 10/21/24, <a href="https://www.jito.wtf/validators/">according to Jito</a>. This makes the Jito client the de facto primary client implementation for the Solana network. You can see in <a href="https://github.com/jito-foundation/jito-solana/commits/master/">the Jito commit history</a> that the Anza team contribute to Jito development.</p>
+<p>While the Agave client has a concept of a priority fee, the need for Jito tips is described well <a href="https://www.umbraresearch.xyz/writings/solana-fees-part-1#incentive-compatibility">here</a>. At a high level, Jito takes 5% of tips (<a href="https://drive.google.com/file/d/1V_Ppv2IwzuKej9PTYd7DlksuI9INFfJZ/view?usp=sharing">corroboration</a>), validators take a discretionary commission (market commission appears to be 7-10% according to <a href="https://stakewiz.com/">Stakewiz</a>), and SOL stakers receive the rest. (as an aside, I believe validators can choose what txns to include. I don&rsquo;t think consensus requires inclusion based on priority fee, or intrablock ordering based on priority fee).</p>
+<p>With that background, here is the schema for Ghost&rsquo;s dataset, with some analogies to EVM transactions, if helpful.</p>
+<table>
+  <thead>
+      <tr>
+          <th>Field</th>
+          <th>Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>sig</td>
+          <td>Signature (akin to tx hash)</td>
+      </tr>
+      <tr>
+          <td>slot</td>
+          <td>Slot number (akin to block number)</td>
+      </tr>
+      <tr>
+          <td>date_cet</td>
+          <td>Date in Central European Time</td>
+      </tr>
+      <tr>
+          <td>in_bundle</td>
+          <td>Whether the transaction is part of a Jito &ldquo;bundle&rdquo;</td>
+      </tr>
+      <tr>
+          <td>jito_tip_sol</td>
+          <td>The tip to the validator running the Jito client included with the transaction, in SOL. Akin to a priority fee.</td>
+      </tr>
+      <tr>
+          <td>revenue_sol</td>
+          <td>The revenue from the arbitrage, calculated by Ghost</td>
+      </tr>
+      <tr>
+          <td>signer</td>
+          <td>The signer of the txn, or the wallet that sent the transaction.</td>
+      </tr>
+      <tr>
+          <td>program</td>
+          <td>The smart contract (called a &ldquo;program&rdquo; on Solana) with which the transaction interacted.</td>
+      </tr>
+  </tbody>
+</table>
+<p><em>Note that everything in this article simply takes the dataset at face value. It may be possible that what is in the dataset may not be strictly the same as what happened <strong>on Solana</strong> itself (i.e., if the dataset is not accurate for some reason). That said, I have no reason to think the dataset is inaccurate! I just don&rsquo;t know :)</em></p>
+<h3 id="basic-interesting-facts">Basic interesting facts</h3>
+<ul>
+<li>The total amount of atomic arbitrage revenue earned by arbitrageurs was 26,991 $SOL, or about $4.5m at current day constant price (10/22/24).</li>
+<li>The total amount of tips paid to validators running the Jito client was 5,141 $SOL, or about $856k at current day prices.</li>
+<li>This equates to just 19% of arbitrage opportunity paid to Jito proposers, which may indicate a relatively uncompetitive market. If the market were more competitive, proposers should receive more of the arbitrage opportunity because the slot leader is a monopolist on the economic opportunity.</li>
+<li>Additionally, just 33.7% of the transactions are included in a Jito bundle at all. I know that it is common practice for searchers to send a Jito transaction AND an Agave transaction, but this is still surprising, especially given Jito&rsquo;s 89% market share.</li>
+<li>For transactions sent to Jito, 47.6% of arbitrage opportunity is paid to Jito proposers.</li>
+<li>The total revenue from transactions in a bundle was 10,800 $SOL, or about $1.8m. This is equivalent to 40% of arbitrage revenue.</li>
+</ul>
+<p>These datapoints indicate an interesting and surprising market structure in Solana atomic arbitrage. First, it appears relatively uncompetitive. If the market were more competitive, arbitrageurs would need to tip closer to the total arbitrage profit for a transaction (or else a competitor would tip higher and capture the opportunity). Second, although Jito has high penetration, and a product feature that seems great for atomic arbitrage (bundles), it doesn&rsquo;t end up being used as much as one might think.</p>
+<h3 id="short-exam-of-opportunities">Short exam of opportunities</h3>
+<ul>
+<li>There are 52 unique programs (i.e., smart contracts/apps) present in the dataset. A Solana &ldquo;program&rdquo; is like a smart contract in the EVM.</li>
+<li>The most-used program is <code>JUP6Lk...</code>, <a href="https://solscan.io/account/JUP6LkbZbjS1jKKwapdHNy74zcZ3tLUZoi5QNyVTaV4">the Jupiter aggregator</a>. It was arbitraged against 307k times (1/3rd of txns).</li>
+<li>The next-most arbitraged-against program is <code>E8uB9x...</code>, with 99k transactions (1/10th of txns).</li>
+</ul>
+<p>Here&rsquo;s a histogram showing the number of transactions per program in the dataset. It&rsquo;s hard to say that much about these stats.</p>
+<figure class="img-caption"><img src="/2024/sol_txn_count_vs_program_id-1-1024x477.png"
+    alt="Histogram of transactions vs. program ID">
+</figure>
+
+<p>And some additional scatter plots for number of transactions vs total revenue and total tips per program.</p>
+<figure class="img-caption"><img src="/2024/sol_txns_vs_rev_bipanel.png"
+    alt="Scatter plots">
+</figure>
+
+<p>And probably the most interesting scatter, total tips vs total revenue.</p>
+<figure class="img-caption"><img src="/2024/sol_scatter_tips_vs_rev_per_program-1.png"
+    alt="Scatter plots">
+</figure>
+
+<p>Low tips but high revenue are probably the best programs for an arbitrageur; it implies they are capturing most of the arbitrage value available. The &ldquo;best&rdquo; programs, circled in red above (the three which yielded &gt;1200 SOL in revenue but required &lt;250 SOL in tips) are described below.</p>
+<table>
+  <thead>
+      <tr>
+          <th>Program</th>
+          <th>Jito tips paid to validator ($SOL)</th>
+          <th>Total revenue ($SOL)</th>
+          <th>Aggregate % opportunity paid as tip</th>
+          <th>Number of txns</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>3JmzqBoDLvNTPapBGCN7x23kTE5o7zkQ2fQhuyU3j9x6</code></td>
+          <td>153.1</td>
+          <td>2,493.1</td>
+          <td>6.1%</td>
+          <td>28,090</td>
+      </tr>
+      <tr>
+          <td><code>7PWnthtTsGnSpR4JLENYVoCJ5y5XwgELVbqgp6TkAFaH</code></td>
+          <td>0</td>
+          <td>2,241.5</td>
+          <td>0%</td>
+          <td>38,406</td>
+      </tr>
+      <tr>
+          <td><code>bank7GaK8LkjyrLpSZjGuXL8z7yae6JqbunEEnU9FS4</code></td>
+          <td>25.4</td>
+          <td>1,339.1</td>
+          <td>1.9%</td>
+          <td>95,013</td>
+      </tr>
+      <tr>
+          <td>All bundled txns</td>
+          <td>5,141</td>
+          <td>10,800</td>
+          <td>47.6%</td>
+          <td>356,867</td>
+      </tr>
+      <tr>
+          <td>Full dataset</td>
+          <td>5,141</td>
+          <td>26,991</td>
+          <td>19%</td>
+          <td>1,059,953</td>
+      </tr>
+  </tbody>
+</table>
+<p>Another interesting finding is that Jito use for these opportunities is relatively low.</p>
+<table>
+  <thead>
+      <tr>
+          <th>Program</th>
+          <th>Aggregate % opportunity paid as tip</th>
+          <th>% txns in Jito bundle</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>3Jmzq...</code></td>
+          <td>6.1%</td>
+          <td>14.5%</td>
+      </tr>
+      <tr>
+          <td><code>7PWnt...</code></td>
+          <td>0%</td>
+          <td>0%</td>
+      </tr>
+      <tr>
+          <td><code>bank7...</code></td>
+          <td>1.9%</td>
+          <td>8.3%</td>
+      </tr>
+      <tr>
+          <td>Full dataset</td>
+          <td>19%</td>
+          <td>33.7%</td>
+      </tr>
+  </tbody>
+</table>
+<p>One hypothesis for this phenomenon is that just one market participant is running the strategy. And indeed that&rsquo;s what we find:</p>
+<table>
+  <thead>
+      <tr>
+          <th>Program</th>
+          <th>Number of unique transaction senders</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>3Jmzq...</code></td>
+          <td>3</td>
+      </tr>
+      <tr>
+          <td><code>7PWnt...</code></td>
+          <td>1</td>
+      </tr>
+      <tr>
+          <td><code>bank7...</code></td>
+          <td>1</td>
+      </tr>
+      <tr>
+          <td>Full dataset</td>
+          <td>414</td>
+      </tr>
+  </tbody>
+</table>
+<p>Except for <code>3Jmzq...</code>, which has three unique senders in the month of September. Did competitors discover the strategy during the month? Here&rsquo;s the number of unique senders over time:</p>
+<figure class="img-caption"><img src="/2024/sol_3jms_num_searchers_over_time.png"
+    alt="Scatter plots">
+</figure>
+
+<p>Doesn&rsquo;t seem like it. Hmm, let&rsquo;s see how each signer/sender is performing.</p>
+<figure class="img-caption"><img src="/2024/sol_second_to_last_pic.png"
+    alt="Scatter plots">
+</figure>
+
+<p>Again, pretty consistent! No big changes in the market for this opportunity over time.</p>
+<p>The last thing I wanted to check that might indicate a change in competitiveness was increased use of Jito tips. If the amount of tips increased over time, that could indicate the opportunity set was growing more competitive.</p>
+<figure class="img-caption"><img src="/2024/sol_last_pic.png"
+    alt="Scatter plots">
+</figure>
+
+<p>So interesting! <code>9VP2W...</code> (must?) uses tips to win its opportunities&hellip; and it still wins the least of the three addresses!</p>
+<p>As to what the program actually does? I have absolutely no idea, I cannot read a Solana block explorer.</p>
+<p><em>Thanks for reading :) These are my independent thoughts and do not necessarily represent the views of my employer.</em></p>
+
+        </section>
+        <div class="post-tags">
+          
+          
+          <hr />
+          <nav class="nav tags">
+            <p class="tags">Tags:
+              
+                <a href="/tags/crypto">crypto</a>
+              
+                , <a href="/tags/mev">mev</a>
+              
+                , <a href="/tags/data">data</a>
+              
+            </p>
+          </nav>
+          
+          
+        </div>
+      </div>
+
+      
+      
+    </div>
+
+    </article>
+</main>
+<footer>
+  <div style="display:flex"><a class="soc" href="https://github.com/mud2monarch/" rel="me" title="GitHub"><svg class="feather">
+   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
+</svg></a><a class="border"></a><a class="soc" href="https://x.com/mud2monarch/" rel="me" title="Twitter"><svg class="feather">
+   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#twitter" />
+</svg></a><a class="border"></a><a class="soc" href="https://www.linkedin.com/in/zachrwong/" rel="me" title="LinkedIn"><svg class="feather">
+   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#linkedin" />
+</svg></a><a class="border"></a></div>
+  <div class="footer-info">
+     content © 2025 zach wong  | built with <a href="https://gohugo.io">hugo</a>, <a href="https://github.com/mud2monarch/zachrwong-info">mit open source</a>.
+  </div>
+</footer>
+
+</div>
+    </body>
+</html>

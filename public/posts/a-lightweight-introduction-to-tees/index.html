@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html><head lang="en"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>A lightweight introduction to TEEs and how they’re being used today - Zach Wong</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="A consumable introduction to TEEs with a non-technical-friendly walkthrough of how a TEE is being used for Ethereum block building." />
+	<meta property="og:image" content=""/>
+	<meta property="og:url" content="http://localhost:1313/posts/a-lightweight-introduction-to-tees/">
+  <meta property="og:site_name" content="Zach Wong">
+  <meta property="og:title" content="A lightweight introduction to TEEs and how they’re being used today">
+  <meta property="og:description" content="A consumable introduction to TEEs with a non-technical-friendly walkthrough of how a TEE is being used for Ethereum block building.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-05-15T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-05-15T00:00:00+00:00">
+    <meta property="article:tag" content="TEEs">
+    <meta property="article:tag" content="Explainers">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="A lightweight introduction to TEEs and how they’re being used today">
+  <meta name="twitter:description" content="A consumable introduction to TEEs with a non-technical-friendly walkthrough of how a TEE is being used for Ethereum block building.">
+
+        <link href="http://localhost:1313/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css" rel="stylesheet">
+	
+
+	
+	<link rel="stylesheet" type="text/css" media="screen" href="http://localhost:1313/css/main.d85b563bb1a8492ec00be237efb339d6b716dba5cbccde815716282bc52ce9fa.css" />
+</head>
+<body>
+        <div class="content"><link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+<header>
+	<div class="main">
+		<a href="http://localhost:1313/">Zach Wong</a>
+	</div>
+	<nav>
+		
+		
+	</nav>
+</header>
+
+<main>
+  <article>
+    <div class="post-container">
+      
+      <div class="post-content">
+        
+          <img src="/2025/tee_matching.webp" alt="Featured Image" class="featured-image">
+        
+        <div class="title">
+          <h1 class="title">A lightweight introduction to TEEs and how they’re being used today</h1>
+          <div class="meta">Posted on May 15, 2025</div>
+        </div>
+        
+        <section class="body">
+          <p>One of the most exciting areas of blockchain innovation is the use of “TEEs” to introduce <em>verifiability</em> in important systems. A “TEE” is a special kind of computer that has an embedded private key. The computer can use the private key to make verifiable attestations about its behavior.</p>
+<p>As discussed prior in this blog (see <a href="https://paragraph.com/@mud2monarch/disaggregating-decentralization">Gyges Lydias: Disaggregating Decentralization</a>), verifiability is one of the key goods provided by decentralization. In this case, even though a TEE may be run by a single party, it still provides valuable user protections worth pursuing.</p>
+<p>In this article, I lightly explain what a TEE is and walk through a new initiative by Flashbots and BeaverBuild to introduce verifiable priority ordering within L1 blocks. We will:</p>
+<ol>
+<li>Learn how a TEE introduces verifiability</li>
+<li>Explain the Flashbots/BeaverBuild initiative</li>
+<li>Verify one component of the initiative (priority ordering on ETH L1)</li>
+</ol>
+<p><em>These are my independent thoughts and do not necessarily represent the views of my employer.</em></p>
+<hr>
+<h3 id="how-a-tee-works"><strong>How a TEE works</strong></h3>
+<p>A TEE is a special computer processor, typically manufactured by Intel, that contains an embedded private key. For modern TEEs like Intel’s TDX, the TEE is functionally the same as the CPU. The CPU can be made available in cloud environments like Google Cloud or on bare metal providers. &ldquo;TEE&rdquo; stands for &ldquo;Trusted Execution Environment&rdquo; because users can trust the chip after verifying the attestation as described below.</p>
+<p>The private key in the TEE is used in the same way we use private keys everyday: to prove the authenticity of some claim through a cryptographic signature. When we connect to our bank account, our browser authenticates the HTTPS connection with the bank’s server and verifying that the internet traffic is encrypted. When we send ETH to a friend, our wallet is signing transaction calldata with our private key which tells the network the transaction could only have been signed with our key.</p>
+<p>For our purposes, a TEE produces a verifiable attestation by taking a “measure” of the virtual machine and programs deployed to the TEE, including the operating system kernel and all software loaded in, and signs and publishes an attestation of the hash of that software. You can think of this as putting all of the code into a string and hashing that string to produce a unique, deterministic, shorter signature.</p>
+<figure class="img-caption"><img src="/2025/tee_matching.webp"
+    alt="Diagram showing TEE verification"><figcaption>
+      <p>Rebuild the same machine locally, produce an attestation, and compare it to the remote attestation to verify that the same code is running on the TEE.</p>
+    </figcaption>
+</figure>
+
+<p>To verify the signature, users, e.g., you and I, can rebuild the entire kernel and software from open source code and produce a hash of our local build. If we can produce the same hash provided by the TEE operator, then we know we have have verified exactly what software is being run on the TEE. This is very similar to how we verify open source smart contracts today — we compare the deployed bytecode of a smart contract, which is available onchain to anyone running a full node, to the source code provided by the publisher. If the bytecode of the source code matches that which is onchain, we can verify it is accurate.</p>
+<p>In sum, using a TEE provides the quality of <em>verifiability</em> — an essential benefit of decentralization. If we can reproduce the hash then we know the source code we see is the source code in use. And once we know the source code that is in use, we can review the code to see exactly what is happening.</p>
+<h3 id="flashbotsbeaverbuilds-buildernet">Flashbots/BeaverBuild’s BuilderNet</h3>
+<p>Flashbots is a research and development organization focused on mitigating the negative externalities posed by MEV. They develop and operate MEV-Boost, a key component of ETH L1’s block building system that processes ~90% of ETH L1 blocks. BeaverBuild are one of two major ETH L1 block builders, and they also run a powerful “searching” operation, which means they compete to arbitrage economic opportunities on ETH L1.</p>
+<figure class="img-caption"><img src="/2025/tee_builder_marketshare.webp"
+    alt="Chart of Ethereum builder marketshare with beaverbuild in second place"><figcaption>
+      <p>BeaverBuild typically builds ~35% of blocks.</p>
+    </figcaption>
+</figure>
+
+<p>Builders on ETH L1 construct blocks, which they send to validators through MEV-Boost. Because they send full blocks to validators, builders <a href="https://decrypt.co/298176/tornado-cash-dev-charges-dropped-sanctions-illegal#:~:text=He%20highlighted%20that%20%E2%80%9Cmajor%20builders%20actually%20censor%20ethereum%20transactions%20that%20are%20sanctioned.">have significant control</a> over which transactions are included on ETH L1.</p>
+<p><a href="https://buildernet.org/blog/introducing-buildernet">BuilderNet is a new initiative</a> to build a distributed system that will decrease the control builders have over transaction inclusion, and other important characteristics of ETH L1. The general idea is to construct a more verifiable, fair, resilient system that still offers competitive economics to profit-maximizing validators.</p>
+<p>In order to achieve strong economics for validators, BuilderNet makes certain promises about how transactions sent to BuilderNet will be processed. For example, a user can send a transaction to BuilderNet and receive a rebate if her transaction generates MEV. Importantly, though, the user needs to trust that BuilderNet <em>will</em> provide the rebate prior to submitting her transaction. This is where TEEs come in: by running BuilderNet within TEEs (many of them; the system is distributed), users can verify that the code being run <em>will</em> provide the rebate that is promised. Hopefully you can see how the introduction of verifiability on arbitrary code expands the design space for decentralized systems.</p>
+<h3 id="priority-ordering-and-censorship-resistance">Priority ordering and censorship resistance</h3>
+<p>Most people think of the value of censorship resistance in the context of a nation-state conflict: perhaps a powerful country like Russia wants to <a href="https://www.coindesk.com/policy/2020/07/15/russian-activists-use-bitcoin-and-the-kremlin-doesnt-like-it">censor payments to dissidents like Alexei Navalny</a>. But it is also important for a more benign — but still important — application on blockchains: fair auctions.</p>
+<p>One way to mitigate MEV is to use strict priority ordering: transactions within a block will be ordered based on descending priority fee paid by the transaction submitter. Because only one transaction can capture an available economic opportunity, priority ordering amounts to an implicit auction: the block builder is effectively ‘selling’ the opportunity to the highest bidder. For a more eloquent explanation, see <a href="https://www.paradigm.xyz/2024/06/priority-is-all-you-need">Priority Is All You Need by Dan Robinson and Dave White</a>.</p>
+<p>One failure mode for a priority ordering auction is that the auctioneer, i.e., the block builder, is colluding with a bidder — or, in fact, is a bidder itself. This is not theoretical: this happens on ETH L1 today because BeaverBuild and Titan Builder are integrated searcher-builders. In this failure mode, the builder might position their own transactions ahead of other searchers’ transactions. This would break the priority ordering auction which would render the mechanism almost useless.</p>
+<p>By running a block builder within a TEE, as BuilderNet is working on doing, searchers could verify that BuilderNet <em>will</em> order transactions by descending priority fee. If searchers can verify that the claimed behavior will actually be followed, they will be more likely to participate, and the system will be more efficient, with welfare accruing to all blockchain users in a well-designed system.</p>
+<h3 id="how-to-verify-buildernet-is-ordering-transactions-by-priority-fee">How to verify BuilderNet is ordering transactions by priority fee</h3>
+<p>As discussed above, there is a two-step process to verify the behavior of a TEE:</p>
+<ol>
+<li>Rebuild the TEE locally and compare your local attestation to the attestation provided by the TEE operator → this allows you to verify that the code that the operator claims is being run is actually being run</li>
+<li>Examine the source code you built locally to see what it is doing → this allows you to verify that the code is doing what the operator says the code is doing</li>
+</ol>
+<p>We’ll leave the first step to a later exercise; but today, we will audit the BuilderNet code to see if the code orders transactions by priority fee.</p>
+<p>Flashbots <a href="https://buildernet.org/docs/os-services-builds#key-services">claim that BuilderNet uses rbuilder</a>, which, if you’re at all familiar with the typical naming conventions of Rust aficionados, is a block builder written in Rust. Again, we can only verify their claim by verifying their attestation, which is out of scope for this exercise. The rbuilder code, however, is <a href="https://github.com/flashbots/rbuilder/">available on Github</a>.</p>
+<p>I will now attempt to explain Flashbots’ code in natural language for someone unfamiliar in Rust. Rust is pretty… f&amp;🤖ked, for lack of a better word, so bear with me. I’ve stripped out a lot of the code, but I share the filepath and code line for each block if you want to read the full thing. For those of you who know Rust, the terminology will not be correct (I am writing for a Rust-unfamiliar audience), but I hope you will agree it is accurate.</p>
+<p><em>The code that shows rbuilder uses priority ordering</em></p>
+<p>We enter the block building process through the <code>build_block()</code> function. The function has a different behavior based on the <code>OrderPriority</code> parameter we use (that’s what the <code>&lt;OrderPriorityType: OrderPriority&gt;</code> angle brackets mean). Remember this.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#75715e">// flashbots/rbuilder/crates/rbuilder/src/building/builders/ordering_builder.rs#227
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// call build_block():
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">pub</span> <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">build_block</span><span style="color:#f92672">&lt;</span>OrderPriorityType: <span style="color:#a6e22e">OrderPriority</span><span style="color:#f92672">&gt;</span>() {
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// [..some code..]
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// As part of building a block, we need to fill_orders():
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	self.fill_orders(<span style="color:#f92672">&amp;</span><span style="color:#66d9ef">mut</span> block_building_helper, block_orders, build_start)<span style="color:#f92672">?</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>This kicks us to <code>fill_orders()</code> immediately below. In <code>fill_orders(),</code> we loop through all the “orders” (i.e., pending transactions) that can go into the block.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#75715e">// flashbots/rbuilder/crates/rbuilder/src/building/builders/ordering_builder.rs#261
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// call fill_orders():
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">fill_orders</span><span style="color:#f92672">&lt;</span>OrderPriorityType: <span style="color:#a6e22e">OrderPriority</span><span style="color:#f92672">&gt;</span>() {
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// [..some code..]
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// This kicks off a loop. It&#39;s saying &#34;while we have a valid &#34;sim_order&#34;,
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#75715e">// keep calling pop_order() on block_orders.&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#75715e">// &#34;pop&#34; is an intuitive verb if you think of block_orders as a &#34;stack&#34; of block orders.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#75715e">// We&#39;re &#34;popping&#34; the next order off the top of the stack.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#75715e">// pop_order() is defined in a different file...
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">while</span> <span style="color:#66d9ef">let</span> Some(sim_order) <span style="color:#f92672">=</span> block_orders.pop_order() {
+</span></span><span style="display:flex;"><span>	  <span style="color:#75715e">// [..code which processes the order..]
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// flashbots/rbuilder/crates/rbuilder/src/building/block_orders/prioritized_order_store.rs#59
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// When we call pop_order(), we call pop() on main_queue.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// Keep going...
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">pub</span> <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">pop_order</span>(<span style="color:#f92672">&amp;</span><span style="color:#66d9ef">mut</span> self) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> (id, _) <span style="color:#f92672">=</span> self.main_queue.pop()<span style="color:#f92672">?</span>;
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// [..more code..]]
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// flashbots/rbuilder/crates/rbuilder/src/building/block_orders/prioritized_order_store.rs#26
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// main_queue is a PriorityQueue that is built with the OrderPriorityType that we flagged before.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">pub</span> <span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">PrioritizedOrderStore</span><span style="color:#f92672">&lt;</span>OrderPriorityType<span style="color:#f92672">&gt;</span> {
+</span></span><span style="display:flex;"><span>    main_queue: <span style="color:#a6e22e">PriorityQueue</span><span style="color:#f92672">&lt;</span>OrderId, OrderPriorityType<span style="color:#f92672">&gt;</span>,
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><code>PriorityQueue</code> , despite what it’s name might indicate in this context, is a non-Flashbots-specific function that implements a very high-performance data structure for sorting things. It is an open source and widely used primitive. In <a href="https://docs.rs/priority-queue/latest/priority_queue/priority_queue/struct.PriorityQueue.html#method.pop">the docs for that data structure</a>, we see that <code>pop()</code> pops the “item with the greatest priority.”</p>
+<figure class="img-caption img-600"><img src="/2025/tee_pop_function.webp"
+    alt="Documentation from the PriorityQueue library">
+</figure>
+
+<p>Okay, we’re popping orders off a stack of block orders that sorts the stack based on “the greatest priority.” Now, we need to check if that priority is based on priority gas fee in our specific implementation!</p>
+<p><em><strong>If we setup our block builder with OrderPriorityType of “OrderMevGasPricePriority” then we will pop orders based on priority gas fee.</strong></em> Let’s move over there.</p>
+<p>The <code>PriorityQueue</code> library lets developers define the behavior based on the developer’s implementation of <code>cmp()</code>, which is short for “compare”. So Flashbots need to define comparison behavior for their specific use case. Let’s get back to rbuilder.</p>
+<p>And we find the money line:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#75715e">// flashbots/rbuilder/crates/rbuilder/src/building/block_orders/order_priority.rs#67
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">impl</span> OrderMevGasPricePriorityCmp {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// a function that defines the &#34;cmp&#34; function for this Type.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">cmp</span>(a: <span style="color:#66d9ef">&amp;</span><span style="color:#a6e22e">SimulatedOrder</span>, b: <span style="color:#66d9ef">&amp;</span><span style="color:#a6e22e">SimulatedOrder</span>) -&gt; <span style="color:#a6e22e">Ordering</span> {
+</span></span><span style="display:flex;"><span>      a.sim_value.mev_gas_price.cmp(<span style="color:#f92672">&amp;</span>b.sim_value.mev_gas_price)
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>It might not look like it 😭 — as I said, Rust is pretty wonky. But In Rust, this function returns an <code>Ordering</code>  which is <a href="https://doc.rust-lang.org/std/cmp/enum.Ordering.html">like a shorthand for <em>either</em></a> <code>Greater</code>, <code>Equal</code>, or <code>Less</code>.</p>
+<p>So <em>if</em> <code>a.sim_value.mev_gas_price</code> &gt; <code>b.sim_value.mev_gas_price</code> <em>then</em> the function will return <code>Greater</code> . It’s probably <em>approximately</em> clear that we’re comparing gas prices of two different orders, but let’s just double check here.</p>
+<p>The <code>cmp()</code> function takes in two variables, <code>a</code> and <code>b</code> of type <code>SimulatedOrder</code>. We find <code>SimulatedOrder</code> in <code>primitives/mod.rs</code> , which is intuitive: these are the “primitive” types used throughout the codebase.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#75715e">// flashbots/rbuilder/crates/rbuilder/src/primitives/mod.rs#L1089
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Define a &#34;struct,&#34; which you can think of as a &#34;thing&#34; called SimulatedOrder
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// Each SimulatedOrder has a field called &#34;sim_value&#34; which is itself a &#34;thing&#34; called SimValue.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// Scroll down.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">pub</span> <span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">SimulatedOrder</span> {
+</span></span><span style="display:flex;"><span>		<span style="color:#75715e">// [..other fields..]
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">pub</span> sim_value: <span style="color:#a6e22e">SimValue</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// [..other fields..]
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// flashbots/rbuilder/crates/rbuilder/src/primitives/mod.rs#L1053
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Define a &#34;struct&#34; SimValue
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// Each SimValue has an mev_gas_price that is of type U256, which is an
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// &#34;unsigned integer of size 256 bits.&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// This is an integer that can be a max size of 2^256 (1.1579209e+77).
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">pub</span> <span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">SimValue</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// [..other fields..]
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// This is computed as coinbase_profit/gas_used so it includes not only gas tip but also payments made directly to coinbase
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">pub</span> mev_gas_price: <span style="color:#a6e22e">U256</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// [..other fields..]
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}
+</span></span></code></pre></div><p>Okay phew! We can now see that when we compare <code>a.sim_value.mev_gas_price</code> to <code>b.sim_value.mev_gas_price</code> , we are comparing two very large integers and that the function <code>cmp()</code> tells us whether the value for <code>a</code> is <code>Greater</code> than, <code>Less</code> than, or <code>Equal</code> to the value for <code>b</code>.</p>
+<p>WOW! If you’ve made it this far without knowing Rust, great job. At this point, you can see if we configure rbuilder to sort by <code>OrderMevGasPricePriority</code> , then, when the block builder calls <code>pop_order()</code>, it will first pop orders that have the greatest <code>mev_gas_price</code> and process those first. That means that orders will be ordered within the block by <code>mev_gas_price</code> — exactly what we expect.</p>
+<p>Therefore, the last thing we need to check is how the configuration is set. If we can verify that the config file in-use (i.e., by checking that the TEE attestation covers the config file (suffixed <code>.toml</code>, see <code>rbuilder/config-live-example.toml</code> for an example) has what we expect, then the block builder will sort orders by priority fee. One last go…</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-toml" data-lang="toml"><span style="display:flex;"><span><span style="color:#75715e"># flashbots/rbuilder/config-live-example.toml</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>[[<span style="color:#a6e22e">builders</span>]]
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># [..configurations..]</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">sorting</span> = <span style="color:#e6db74">&#34;mev-gas-price&#34;</span>
+</span></span></code></pre></div><p>In Rust, we use a library called <code>serde</code> (short for “serialize - deserialize”) to parse string arguments into the strict types that Rust needs in the program.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#75715e">// flashbots/rbuilder/crates/rbuilder/src/building/mod.rs#L356
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, Serialize, Deserialize)]</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#[serde(rename_all = </span><span style="color:#e6db74">&#34;kebab-case&#34;</span><span style="color:#75715e">)]</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">pub</span> <span style="color:#66d9ef">enum</span> <span style="color:#a6e22e">Sorting</span> {
+</span></span><span style="display:flex;"><span>    MevGasPrice,
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// [..more options..]
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}
+</span></span></code></pre></div><p>This is really, really confusing (I warned you…), but the <code>#[</code> blocks are like auto-transforms. What these say in natural language is something like “take a text input in kebab-case (e.g., “word-next-word-with-hyphens-looks-like-a-kebab”) and deserialize (parse) it into CamelCase (e.g., “CapsLookLikeACamelWhichIsRustStandardConvention”). If the text input ends up matching “MevGasPrice” then our <code>Sorting</code> setting will be MevGasPrice.</p>
+<p>If we go to the <code>ordering_builder</code> , we see how the builder is initialized:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#75715e">// flashbots/rbuilder/crates/rbuilder/src/building/builders/ordering_builder.rs#L42
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Our defined Sorting config goes into an OrderingBuilderConfig.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// Then scroll up..
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">pub</span> <span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">OrderingBuilderConfig</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// [..other fields..]
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">pub</span> sorting: <span style="color:#a6e22e">Sorting</span>,
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// flashbots/rbuilder/crates/rbuilder/src/building/builders/ordering_builder.rs#L68
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// when we run_ordering_builder(), we define our &#34;builder&#34; to use our config
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">pub</span> <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">run_ordering_builder</span><span style="color:#f92672">&lt;</span>OrderPriorityType<span style="color:#f92672">&gt;</span>(
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// this means that &#34;config&#34; must be of type OrderingBuilderConfig
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  config: <span style="color:#66d9ef">&amp;</span><span style="color:#a6e22e">OrderingBuilderConfig</span>, 
+</span></span><span style="display:flex;"><span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">let</span> <span style="color:#66d9ef">mut</span> builder <span style="color:#f92672">=</span> OrderingBuilderContext::new(
+</span></span><span style="display:flex;"><span>      block_state.clone(),
+</span></span><span style="display:flex;"><span>      input.builder_name,
+</span></span><span style="display:flex;"><span>      input.ctx,
+</span></span><span style="display:flex;"><span>      config.clone(), <span style="color:#75715e">// LOOK HERE
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  );
+</span></span></code></pre></div><p>Whew. As a final review, here’s what we know happens in the code:</p>
+<ul>
+<li>The builder builds blocks based on an <code>OrderPriorityType</code></li>
+<li>If the <code>OrderPriorityType</code> is set to <code>OrderMevGasPricePriority</code>, then when we <code>pop()</code> orders off the stack, we will first pop orders with the greatest <code>mev_gas_price</code></li>
+<li>We set the builder to use <code>OrderMevGasPricePriority</code> by passing the argument <code>sorting = &quot;mev-gas-price&quot;</code> into our <code>config.toml</code> file.</li>
+</ul>
+<p>Therefore, what we need to verify from the TEE attestation is that:</p>
+<ul>
+<li>The BuilderNet TEE is running the same rbuilder code that we’ve reviewed here.</li>
+<li>The builder running in the TEE used a <code>config.toml</code> file that has the <code>sorting = &quot;mev-gas-price&quot;</code> line.</li>
+</ul>
+<p>If we can verify all of that, then we <em><strong>know</strong></em> that transactions on BuilderNet <em><strong>will be</strong></em> sorted in priority order.</p>
+<h3 id="verifiability-as-a-central-good-of-decentralization">Verifiability as a central good of decentralization</h3>
+<p>I’ve claimed before that decentralization may not be important for its own sake; instead, it seems good <em>for other things.</em> In this article, I’ve shown how TEEs introduce verifiability: by producing an attestation that can be locally verified against source code which any user can verify. I’ve also shown how users can take the next step and <em>actually verify</em> the behavior of the source code.</p>
+<p>While much of this discussion is still somewhat theoretical — for example, I’m not currently aware if or where BeaverBuild publish TEE attestations to the code they’re running — I hope you can see the future design space for TEEs and a plausible pathway to get there.</p>
+<p><em>Verifiable</em> systems are important for fair, transparent, immutable, and censorship financial markets, and I’m more optimistic than ever that Ethereum DeFi is on the way to achieving that goal.</p>
+
+        </section>
+        <div class="post-tags">
+          
+          
+          <hr />
+          <nav class="nav tags">
+            <p class="tags">Tags:
+              
+                <a href="/tags/tees">TEEs</a>
+              
+                , <a href="/tags/explainers">explainers</a>
+              
+            </p>
+          </nav>
+          
+          
+        </div>
+      </div>
+
+      
+      
+    </div>
+
+    </article>
+</main>
+<footer>
+  <div style="display:flex"><a class="soc" href="https://github.com/mud2monarch/" rel="me" title="GitHub"><svg class="feather">
+   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
+</svg></a><a class="border"></a><a class="soc" href="https://x.com/mud2monarch/" rel="me" title="Twitter"><svg class="feather">
+   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#twitter" />
+</svg></a><a class="border"></a><a class="soc" href="https://www.linkedin.com/in/zachrwong/" rel="me" title="LinkedIn"><svg class="feather">
+   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#linkedin" />
+</svg></a><a class="border"></a></div>
+  <div class="footer-info">
+     content © 2025 zach wong  | built with <a href="https://gohugo.io">hugo</a>, <a href="https://github.com/mud2monarch/zachrwong-info">mit open source</a>.
+  </div>
+</footer>
+
+</div>
+    </body>
+</html>

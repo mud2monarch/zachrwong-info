@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html><head lang="en"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>A comprehensive explanation of SAB 121 and how it prevents safe crypto custody - Zach Wong</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="A detailed overview of SEC Staff Accounting Bulletin 121, why it discourages banks from offering crypto custody, and possible regulatory or legislative fixes." />
+	<meta property="og:image" content=""/>
+	<meta property="og:url" content="http://localhost:1313/posts/comprehensive-explanation-sab-121/">
+  <meta property="og:site_name" content="Zach Wong">
+  <meta property="og:title" content="A comprehensive explanation of SAB 121 and how it prevents safe crypto custody">
+  <meta property="og:description" content="A detailed overview of SEC Staff Accounting Bulletin 121, why it discourages banks from offering crypto custody, and possible regulatory or legislative fixes.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2023-08-07T00:00:00+00:00">
+    <meta property="article:modified_time" content="2023-08-07T00:00:00+00:00">
+    <meta property="article:tag" content="Crypto">
+    <meta property="article:tag" content="Policy">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="A comprehensive explanation of SAB 121 and how it prevents safe crypto custody">
+  <meta name="twitter:description" content="A detailed overview of SEC Staff Accounting Bulletin 121, why it discourages banks from offering crypto custody, and possible regulatory or legislative fixes.">
+
+        <link href="http://localhost:1313/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css" rel="stylesheet">
+	
+
+	
+	<link rel="stylesheet" type="text/css" media="screen" href="http://localhost:1313/css/main.d85b563bb1a8492ec00be237efb339d6b716dba5cbccde815716282bc52ce9fa.css" />
+</head>
+<body>
+        <div class="content"><link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+<header>
+	<div class="main">
+		<a href="http://localhost:1313/">Zach Wong</a>
+	</div>
+	<nav>
+		
+		
+	</nav>
+</header>
+
+<main>
+  <article>
+    <div class="post-container">
+      
+      <div class="post-content">
+        
+        <div class="title">
+          <h1 class="title">A comprehensive explanation of SAB 121 and how it prevents safe crypto custody</h1>
+          <div class="meta">Posted on Aug 7, 2023</div>
+        </div>
+        
+        <section class="body">
+          <p>Given recent wallet <a href="https://www.coindesk.com/tech/2023/06/05/atomic-wallet-users-hacked-for-35m-worth-of-bitcoin-ether-tether-and-other-tokens/">hacks</a>, extensive <a href="https://www.reuters.com/business/ftx-start-us-bankruptcy-proceedings-ceo-exit-2022-11-11/">counterparty risk</a>, and <a href="https://globalnews.ca/news/9030613/lost-bitcoin-landfill-search-newport-james-howells/">ubiquitous stories of lost funds</a> in the crypto-asset industry, the proliferation of high-quality custody services should be a policy priority for U.S. lawmakers. Unfortunately, when it comes to the Securities and Exchange Commission’s (SEC’s) <a href="https://www.sec.gov/oca/staff-accounting-bulletin-121">Staff Accounting Bulletin No. 121</a> (SAB 121), that doesn’t appear to be the case. The guidance breaks from established regulatory and accounting standards and prevents banks—who could be high-quality crypto custodians—from offering those services to consumers.</p>
+<p>This resource explains SAB 121, why it harms consumers, how the effect can be fixed, and what it means for markets. The goal is to help policymakers and the crypto community understand the issue and mobilize to change it.</p>
+<h3 id="contents">Contents</h3>
+<ul>
+<li><em><a href="#sec1">What SAB 121 is</a></em></li>
+<li><em><a href="#sec2">Why bank custody matters</a></em></li>
+<li><em><a href="#sec3">SAB 121’s special effect on banks</a></em></li>
+<li><em><a href="#sec4">Pathways for resolution</a></em></li>
+<li><em><a href="#sec5">Market implications</a></em></li>
+<li><em><a href="#sec6">Conclusion</a></em></li>
+<li><em><a href="#app1">Appendix 1: Bank capital requirements</a></em></li>
+</ul>
+<h3 id="sec1">What SAB 121 is</h3>
+<p>SAB 121 is an interpretive statement that expresses the view of SEC staff about how SEC-reporting companies should file their financial reports when they hold cryptoassets for customers. Companies that might do this include Coinbase, Square/Cash App, and Bank of New York Mellon. In the bulletin, SEC staff reason that, because the safeguarding of cryptoassets involves unique risks and uncertainties that are not present when companies safeguard traditional assets, investors would be best served by supplementary disclosures about the nature of the company’s safeguarding activities. The staff also prescribe special accounting treatment for the cryptoassets held in custody.</p>
+<p>Under SAB 121, companies safeguarding customer cryptoassets must record cryptoassets held in custody as a liability on their balance sheet with a corresponding asset. This breaks with normal practice where assets safeguarded for clients are not recorded on a company’s balance sheet. The convention is logical because safeguarded assets are owned by the client, not the custodian, so they shouldn’t be reported on the custodian’s balance sheet. This break from tradition has significant ramifications for publicly reporting banks that prevent them from providing cryptoasset custody services at scale.</p>
+<h3 id="sec2">Why bank custody matters</h3>
+<p>One of the primary touted benefits of public blockchains is the ability for blockchain users to “self-custody” their assets, i.e., to maintain and prove control of their assets without the involvement of anyone else. However, “self-custody” is most accurately thought of as <em>choice-in-custody</em>: users can <em>choose</em> to hold their assets independently, but they can also choose to rely on a custodian if they’d like. This is possible because assets are controlled cryptographically, so whoever controls an asset’s private key has control of the asset. A user can keep the key to himself, but he’s also free to share the key with anyone else. This kind of true digital ownership is a fundamental improvement on the state of traditional financial services because, again, the involvement of a specific party is not required. It is an example of how the native interoperability of open, public blockchains is better for users.</p>
+<p>Relevant to this article, some users may wish to rely on established asset custodians like banks for custody services. Just as many Americans hire banks to safeguard traditional assets today, crypto users might wish to hire a bank to safeguard their cryptoassets for them as well. This should be welcomed by regulators and industry alike. Banks have a long tradition of providing custody services and generally have rigorous controls and supervision in place. While banks will be unlikely to innovate as quickly as more agile organizations, the limited services they may initially establish (e.g., BTC custody) seem likely to be reliable. At the very least, enabling banks to participate in free market competition for custody services should be uniformly good, all else equal.<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup></p>
+<p>Second, while it’s not guaranteed that bank custody of cryptoassets would be safe, it seems reasonably likely given their long history of offering custody services, extensive regulation and supervision, and commercial interests. Banks can subcontract with cryptonative custody providers such as Fireblocks to ensure state-of-the-art custody solutions for their customers when they lack the technical expertise to create a technological solution themself. And, at the end of the day, cryptonatives would still be free to choose cryptonative services, which might be made even better by competition with banks.</p>
+<h3 id="sec3">SAB 121’s special effect on banks</h3>
+<p>For many companies, SAB 121’s prescribed accounting treatment is probably a relatively innocuous change in procedure. For banks, though, SAB 121 has a significant constraining effect because they face regulatory obligations <em>that are based on their balance sheets</em>. By requiring cryptoassets held in custody to be recorded on their balance sheets, SAB 121 increases the amount of regulatory capital that banks must hold.</p>
+<p>In the United States, all banks are required to hold minimum levels of regulatory capital that can be used to absorb losses in the bank’s asset portfolio. At a high level, regulatory capital is funding that is loss-absorbing, meaning it must have certain legal characteristics that result in the regulatory capital bearing losses before losses are borne by more senior forms of funding provided by creditors, especially depositors or the government. This is generally common shareholder&rsquo;s equity or a similar asset. From a regulator’s perspective, these characteristics are good because they mean the capital can, of course, absorb losses. From equity shareholders&rsquo; perspective, though, providing capital that must absorb losses is very risky, so they demand compensation to take the additional risk (in the form of a claim on assets or an expectation of returned future cash flows). And therefore, from a bank’s perspective, loss-absorbing capital is the most expensive form of funding, so all else equal banks would prefer to hold less of it.</p>
+<p>The effect of the interaction between SAB 121’s special prescribed accounting treatment and bank capital rules is that it’s financially unviable for any publicly reporting bank to provide cryptoasset custody. For a more detailed discussion of why it’s economically unviable to raise regulatory capital against safeguarded cryptoassets, see Appendix 1.</p>
+<p>SAB 121 is bad for three reasons. First, because publicly reporting banks can’t provide cryptoasset custody at any meaningful scale, crypto users turn to unsafe options like Celsius and FTX, cryptographically weak wallets like Atomic Wallet, or poorly administered self-custody setups. <strong>This is an at-least-indirect result of a U.S. regulatory decision.</strong></p>
+<p>Second, the guidance may also create an unlevel playing field between SEC-reporting banks and banks that do not file reports with the SEC. SAB 121 only applies to public banks that file quarterly reports with the SEC. Therefore, absent guidance otherwise, privately owned banks may not have to reserve capital against safeguarded cryptoassets like publicly traded banks. They have a distinct commercial advantage simply because they are privately owned. This is an apparently arbitrary and unfair discrepancy in the banking market that should be favored by no one.</p>
+<p>Finally, despite its significant effect on consumer protection, SAB 121 was not the result of notice-and-comment rulemaking, the primary method by which significant public policies are supposed to be enacted. In general, significant policies, such as <a href="https://www.ecfr.gov/current/title-17/chapter-II/part-240/subpart-A/subject-group-ECFR6d5251f763d2629/section-240.13a-1">the regulation</a> requiring public companies to file an annual report, are developed and promulgated as “legislative rules.” Legislative rules must be proposed by an agency, published in the <em>Federal Register</em>, and posted for public comment. The agency is then required, by law, to consider and respond to the comments. Agencies interested in good governance often publish other kinds of agency actions for public review even when that is not required; it is genuinely helpful for rulewriters to receive public feedback so that members of the public can voice their opinion, raise unanticipated challenges, or suggest constructive ways to improve a rule.</p>
+<p>Legislative rules may also be challenged in the courts if a plaintiff believes the agency did not properly formulate the rule. As a staff interpretive statement, SAB 121 did not undergo the same procedural steps, and the public has not been afforded any opportunity to comment on the policy. Given its significant effect on the market and investors, SAB 121 should be rescinded and re-proposed in notice-and-comment rulemaking.</p>
+<h3 id="sec4">Pathways for resolution</h3>
+<p>To recap, SAB 121 is merely an explanation of staff views and a statement of the practices SEC staff will follow when evaluating company reports. As such, it’s not clear whether SAB 121 could be easily challenged in the courts.<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup> Instead, here are three other ways by which the conflict between SAB 121 and bank capital requirements can be eliminated:</p>
+<p><em>Bank regulators could direct banking organizations to not consider cryptoassets held in custody as on-balance-sheet assets for the purposes of calculating capital ratios</em></p>
+<p>In my view, the easiest path for resolution is through the U.S. bank regulators. U.S. bank regulators could simply direct banking organizations to not consider assets safeguarded for clients as organization assets for the purposes of calculating their capital requirements. As Chair Powell affirmed in response to Senator Lummis’ June 2022 questions, “custody assets are off-balance sheet, always have been.” Therefore, it would be consistent with existing practice for the U.S. bank regulators to issue such guidance.</p>
+<p>Indeed, the recently finalized <a href="https://www.bis.org/bcbs/publ/d545.pdf">BCBS Crypto Standard</a> recognizes this fact and seems to nod to the current heterodoxy in the United States. In the introductory section, the standard clarifies that cryptoasset exposure is balance sheet agnostic and instead depends on the reality of whether an exposure creates specific risks. It reads:</p>
+<blockquote>
+<p>the term ‘exposure’ includes on- or off-balance sheet amounts that give rise to credit, market, operational, and/or liquidity risks. Certain parts of the chapter, such as the operational risk requirements and the risk management and supervisory review sections, are also applicable to banks’ cryptoasset activities, such as custodial services involving the safekeeping or administration of client cryptoassets on a segregated basis, that do not generally give rise to credit, market or liquidity requirements.</p>
+<p><a href="https://www.bis.org/bcbs/publ/d545.pdf">BCBS Crypto Standard</a> at SCO 60.4.</p></blockquote>
+<p>Assets safeguarded for clients do not expose a bank to credit or market risks because, again, the assets are not the property of the bank. Consider a hedge fund that hires BONY to safeguard 100 BTC for its portfolio. If the dollar value of the bitcoin declines (market risk), BONY’s solvency and balance sheet are not threatened. Therefore, it would not make sense for BONY to reserve capital against such a possibility. BONY could still face <em>operational</em> risk, just as it does for its other custodial activities, but that should be uncontroversial. It is the inclusion of safeguarded cryptoassets in the calculations of capital ratios that defend against credit and market risks that is inappropriate.</p>
+<p>The BCBS Crypto Standard was finalized in December 2022, and national regulators are charged with implementing the standard by January 1, 2025. U.S. prudential regulators have not yet proposed a rule to implement the BCBS Crypto Standard, so an upcoming proposed rule seems like an elegant and surreptitious venue in which bank regulators could paper over the potentially inadvertent problem the SEC has caused.<sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup></p>
+<p><em>Sustained political pressure could prompt SEC staff to withdraw the bulletin</em></p>
+<p>Ultimately, the most straightforward way to get rid of SAB 121 is for SEC staff to rescind the guidance. They might do this, probably at the direction of the Chair, if it became politically untenable to maintain SAB 121. Core to the political pressure would be the reality that SAB 121 causes needless problems for banks. It deprives crypto users of safe cryptoasset custody services, which is undesirable regardless of one’s stance on crypto itself.</p>
+<p>There is some indication that SAB 121 is a politically salient topic. For example, two Representatives, Rep. Andy Barr (KY-06) and Rep. Mike Flood (NE-01) <a href="https://twitter.com/mud2monarch/status/1648439398919462912?s=20">asked</a> Chair Gensler about SAB 121 during the House Financial Services Committee’s (HFSC’s) April 18th oversight hearing. Rep. Flood also wrote <a href="https://flood.house.gov/sites/evo-subsites/flood.house.gov/files/evo-media-document/sab-121-sec.pdf">a letter</a> to the SEC chair expressing his disapproval of the policy.</p>
+<p>Other US government officials have also been asked about SAB 121. For example, in June 2022, Senator Cynthia Lummis (WY) asked Federal Reserve Chair Jerome Powell about whether the Federal Reserve was considering the effect of SAB 121 (he said it was), and she expressed her concern with the guidance.<sup id="fnref:4"><a href="#fn:4" class="footnote-ref" role="doc-noteref">4</a></sup> A day later, the American Bankers Association, the Bank Policy Institute, and the Securities Industry and Financial Markets Association wrote a <a href="https://bpi.com/wp-content/uploads/2022/06/ABA-BPI-and-SIFMA-SAB-121-Letter-2022.06.23.pdf">lengthy joint letter</a> to the prudential bank regulators and Treasury Undersecretary for Domestic Finance Nellie Liang urging the regulators to urge the SEC to exempt prudentially regulated organizations from the obligations of SAB 121 due to banking organizations’ rigorous controls and supervision. Senator Lummis and HFSC Chairman Patrick McHenry (NC-10) wrote <a href="https://www.lummis.senate.gov/wp-content/uploads/Prudential-Impact-of-SAB-121-Letter.pdf">an additional letter</a> to the prudential bank regulators earlier this year asking various questions about SAB 121’s development and its effect on bank balance sheets.</p>
+<p>A continuation or, better, increase in political pressure could cause a change in SAB 121 policy. One upcoming catalyst could be the finalization of <a href="https://www.sec.gov/news/press-release/2023-30.">the SEC’s proposed Safeguarding Rule</a>. While the status of that rule is uncertain, one seemingly large flaw in the rule is the relative dearth of qualified custodians for cryptoassets. The Safeguarding Rule would require all registered investment advisers (RIAs) to use qualified custodians to hold client cryptoassets. Banks are qualified custodians, generally speaking. Several prominent commenters including the <a href="https://www.sec.gov/comments/s7-04-23/s70423-185019-339463.pdf">ABA+FSF+BPI</a> (pgs. 5 and 24), the <a href="https://www.sec.gov/comments/s7-04-23/s70423-185679-339882.pdf">Blockchain Association</a> (pg. 14), the <a href="https://www.sec.gov/comments/s7-04-23/s70423-186079-340122.pdf">Chamber of Commerce</a> (pg. 6, n. 5), the <a href="https://www.sec.gov/comments/s7-04-23/s70423-186639-340542.pdf">Committee on Capital Markets Regulation</a> (pg. 9), <a href="https://www.sec.gov/comments/s7-04-23/s70423-189159-371082.pdf">Coinbase</a> (pg. 21), <a href="https://www.sec.gov/comments/s7-04-23/s70423-187959-342983.pdf">Circle</a> (pg. 4), <a href="https://www.sec.gov/comments/s7-04-23/s70423-187559-342402.pdf">BNY Mellon</a> (pgs. 4, 18, 19), and all <a href="https://www.sec.gov/comments/s7-04-23/s70423-188459-343662.pdf">Chairmen of the HFSC and its subcommittees</a> (pg. 3) highlighted the conflict between SAB 121 and the goals of the proposed rule.</p>
+<p>Finalization of the Rule could catalyze a change in SAB 121 policy because the Rule may not otherwise be very effective without broad availability of high-quality qualified custodians. Additionally, rescinding the guidance in light of a new rule prescribing safe cryptoasset custody practices could provide SEC staff a graceful way to say that the original concerns motivating SAB 121 are no longer as pressing (i.e., because the rule establishes standards for the safeguarding of cryptoassets such that the unique risks and uncertainties that prompted the Bulletin are no longer relevant).</p>
+<p><em>Legislation from Congress could set U.S. financial regulatory policy</em></p>
+<p>Ultimately, Congress is the primary entity that should set U.S. policy. The two current, primary legislative proposals for modern regulation of the cryptoasset industry would rectify the conundrum of SAB 121 if enacted. First, Section 312 of the <a href="https://docs.house.gov/meetings/BA/BA00/20230726/116291/BILLS-118HR4763ih.pdf">Financial Innovation and Technology for the 21st Century Act</a>, which was recently reported by the House Financial Services Committee and the House Agriculture Committee, would prohibit any U.S. bank regulator, the National Credit Union Administration, or the SEC from requiring a depository institution to recognize assets held in custody on its balance sheet or to hold regulatory capital against assets held in custody. Separately, Section 705 of the <a href="https://www.lummis.senate.gov/wp-content/uploads/Lummis-Gillibrand-2023.pdf">Lummis-Gillibrand Responsible Financial Innovation Act</a>, sponsored by Sens. Lummis and Kirsten Gillibrand (NY), sets new legal definitions for assets held in custody and explicitly says they “shall be maintained on an off-balance sheet basis.” Both bills would eliminate the conflict of SAB 121 and would be a healthy reassertion of Congress’ voice in defining U.S. public policy.</p>
+<h3 id="sec5">Market implications</h3>
+<p><em>This article, including the following section, is for informational purposes only and is not an offer or solicitation to buy or sell any securities and should not be relied upon to make any investment decisions.</em></p>
+<p>The public policy choices of U.S. financial regulators and Congress establish the market structure for the cryptoasset industry and affect capital flows and business models. The following are some ways in which SAB 121, or a change to the status quo for bank cryptoasset custody services, could implicate capital allocation.</p>
+<p><em>A more amenable policy could facilitate capital formation in the cryptoasset industry</em></p>
+<p>While privately owned cryptoasset custody banks such as Anchorage Digital and BitGo exist, large traditional financial institutions may not trust cryptonative firms with relatively short track records to safeguard cryptoassets, particularly after the crypto firm collapses of 2022. They may not feel they have the expertise or experience to properly diligence a crypto custodian, especially for such a crucial part of their operation. Alternatively, traditional firms may not want to use a different custodian than they normally use. As such, they may decline to invest in the cryptoasset industry until they can use custody services offered by a top global custodian such as State Street, BONY, J.P. Morgan, or Citigroup.</p>
+<p>A change that allows publicly traded custody banks to offer cryptoasset custody services could lead to capital flows into the cryptoasset industry. Investors could monitor movement in any of the three avenues for resolution I identified above, or they could check quarterly earnings reports to monitor the emergence of cryptoassets on bank balance sheets (which could, for example, signal a concession on bank capital requirements that has not been broadly announced). In particular, it could be a good idea to monitor earnings from Federal Reserve-supervised banks given the Fed’s <a href="https://www.wsj.com/articles/americas-oldest-bank-bny-mellon-will-hold-that-crypto-now-11665460354">relative</a> <a href="https://www.federalreserve.gov/newsevents/pressreleases/bcreg20230127a.htm">flexibility</a> (<em>relative</em> flexibility) in allowing its institutions to offer custody services, provided they are offered in a safe and sound manner. The bellwether would obviously be Bank of New York Mellon, which has already been approved by the Fed to offer cryptoasset custody, but the Fed also supervises foreign financial institutions who may wish to offer cryptoasset custody services.</p>
+<p><em>Privately held custodian banks may have an advantage right now</em></p>
+<p>While some firms may not currently trust cryptonative custodian banks, these banks may also have an advantage because, for the firms that are willing to use a newer custodian, privately held companies may be the only bank custodians that can currently provide custody services. Firms such as Anchorage, BitGo, and others (although, obviously, <a href="https://www.coindesk.com/policy/2023/06/22/prime-trust-has-shortfall-of-customer-funds-nevada-regulator-says/">not every trust company</a>) are able to offer regulated cryptoasset custody services without the complication of SAB 121. If these companies can build brand equity and reputational goodwill before other banks are able to offer their cryptoasset custody services, it could help them establish a foothold in the custody services industry.</p>
+<p>Bank custodians may be particularly important if the SEC finalizes its proposed requirement for RIAs to use a qualified custodian (see earlier discussion of the Safeguarding Rule proposal). To the best of my knowledge, the only non-bank qualified custodian that can provide cryptoasset custody is Prometheum Ember Capital, which received its special purpose broker-dealer license from FINRA <a href="https://www.businesswire.com/news/home/20230523005313/en/Prometheum-Ember-Capital-is-the-First-SEC-Qualified-Custodian-for-Digital-Assets-Securities">in May</a>. If the rule were finalized, bank custodians would be in high demand but limited supply.</p>
+<p><em>Startups or companies wishing to partner with banks might consider limiting assets held in custody to certain stablecoins</em></p>
+<p>Finally, a very minor effect of the current regulatory situation could be that crypto companies wishing to use banks for cryptoasset custody might consider limiting their use of bank custodians to stablecoins only. Under the BCBS Crypto Standard, stablecoins that meet certain conditions are considered Group 1B cryptoassets. As such, they are subject to a lower risk-weighting that is generally similar to the backing assets of the qualifying stablecoin.<sup id="fnref:5"><a href="#fn:5" class="footnote-ref" role="doc-noteref">5</a></sup> Therefore, for the purposes of a bank’s risk-weighted capital ratio it may only be possible for the bank to hold Group 1B stablecoins on its balance sheet.</p>
+<p>An example of a company that could consider this strategy could be a wallet provider or payments firm that wishes to use a bank as a backend custodian. The firm could examine whether it would make sense to limit their use of the bank custodian to the custody of Group 1B stablecoins alone. However, as discussed in Appendix 1, this may only be the case for banks that are limited by their risk-based capital ratio. For banks whose regulatory capital lower-bound is effectively set by the leverage ratio, it would still be impractical to recognize even Group 1B stablecoins on their balance sheets. As such, I think this is an edge case and not likely to apply to many firms or banks, if any.</p>
+<h3 id="sec6">Conclusion</h3>
+<p>Bad policy is politically unsustainable. SAB 121 prevents publicly traded banks from providing safe crypto custody—pushing consumers toward riskier options. Regulators or Congress must resolve the conflict so that the banking sector can offer secure, well-supervised custody services.</p>
+<p><em>These are my independent thoughts and do not necessarily represent the views of my employer. Thank you to Tyler Whirty, Bill Hughes, and others for comments.</em></p>
+<hr>
+<h3 id="app1">Appendix 1: Explanation of relevant bank capital requirements</h3>
+<p>There are two general requirements that are the primary determinants of a bank’s absolute level of regulatory capital. The first requirement considers a bank’s capital relative to its “risk-weighted” assets, the intuition being that if a set of assets is very risky, banks should reserve relatively more capital to offset the increased risk of loss. A bank must keep its ratio of regulatory capital relative to its risk-weighted assets above a certain level.</p>
+<p>The following formula expresses a bank’s capital ratio:</p>
+<figure class="img-caption"><img src="/2023/sab_imageONE.png"
+    alt="simple description of bank capital ratio as capital over assets">
+</figure>
+
+<p>Therefore, a bank’s absolute level of regulatory capital, for the purpose of its risk-based regulatory capital requirement, is primarily a product of its capital ratio requirement and its risk-weighted assets:</p>
+<figure class="img-caption"><img src="/2023/sab_imageTWO.png"
+    alt="definition of Regulatory Capital">
+</figure>
+
+<p>Additionally, banks are subject to leverage-based capital requirements. These capital requirements treat all assets equally, regardless of their perceived riskiness, such that as a bank’s total assets increase, so too does the amount of capital it is required to have to meet its leverage ratio requirement. Leverage-based capital requirements work in conjunction with risk-based capital requirements to ensure that different balance sheet compositions are adequately covered by the regulations.</p>
+<p>Naturally, both requirements use a bank’s balance sheet as their starting point. This is where SAB 121 comes in: when publicly reporting banks record cryptoassets safeguarded for customers on their balance sheets for accounting purposes, they must also reserve capital against those assets to fulfill their regulatory capital obligations.</p>
+<p>When it comes to the risk-based capital ratio, cryptoassets are treated as very high-risk. The Basel Committee on Banking Supervision (BCBS), the standard-setting body for cross-border, coordinated prudential bank regulation, recently finalized <a href="https://www.bis.org/bcbs/publ/d545.pdf">its standard for the prudential treatment of cryptoasset exposures</a>. For Group 2b cryptoassets like bitcoin, ether, and the like, banks are instructed to assign a 1250% risk-weight to their cryptoasset exposures. This is a very, very conservative risk-weight. For reference, U.S. government debt has a risk-weight of 0%, Greek debt has a risk-weight of 100%, and Salvadoran debt has a risk-weight of 150%. The 1250% weight was chosen because it is the risk-weight necessary to ensure banks reserve <em>at least</em> an equivalent amount of capital against the value of the cryptoassets a bank holds on its balance sheet.<sup id="fnref:6"><a href="#fn:6" class="footnote-ref" role="doc-noteref">6</a></sup> Essentially, banks are instructed to assume that the cryptoassets will lose all of their value and hold capital to absorb that anticipated loss.</p>
+<p>For leverage-based capital requirements, all assets are treated equally, but that simply means that adding <em>any</em> assets to a bank’s balance sheet may require the bank to raise additional regulatory capital. BONY safeguards almost $50T in client assets yet has just $430b in on-balance sheet assets. If assets held in custody were required to be recognized on BONY’s balance sheet, it would be prohibitively expensive for the bank to maintain sufficient capital against its clients’ assets.</p>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>Let me preempt two anticipated criticisms: First, no, it is not ironic that crypto holders would use banks. Again, self-custody is really choice-in-custody. Instead of being required to involve a single financial institution in all of my financial transactions, I can choose who I want to involve, or if I want to involve anyone at all. This is a step improvement over the existing financial system.&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2">
+<p>See, e.g., Congressional Research Service, Agency Use of Guidance Documents (Apr. 19, 2021), <a href="https://crsreports.congress.gov/product/pdf/LSB/LSB10591">https://crsreports.congress.gov/product/pdf/LSB/LSB10591</a> (discussing mixed case law record regarding right of plaintiffs to seek judicial review of different types of agency action). If a party wanted to challenge SAB 121, they might have to violate the guidance and be sued by the SEC&hellip; probably not a desirable escapade.&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:3">
+<p>It wouldn’t surprise me if the complications stemming from SAB 121 were unintended by the SEC. First, Chair Gensler appeared to admit, in response to questioning from U.S. Reps. Barr and Flood, that SEC staff did not consult with the banking regulators prior to publishing the SAB. Second, based on the timing of the joint ABA/BPI/SIFMA letter relative to the quantity of meetings the letter records, it seems like the joint trades were surprised by the guidance and its effect on banking organizations. This also implies bank regulators were not aware because they might have consulted with banks or their trades, or someone would have heard about it beforehand. Finally, when it comes to U.S. governmental bodies, ALWAYS ASSUME THERE IS AS LITTLE COORDINATION AS POSSIBLE. These three things make me think that SAB 121’s effect on banks is the inadvertent result of clumsy policymaking (i.e., policy developed without public comment) and that all governmental parties desire a subtle and convenient resolution.&#160;<a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:4">
+<p>Recording of “The Semiannual Monetary Policy Report to Congress” (Jun. 22, 2022), <a href="https://www.banking.senate.gov/hearings/the-semiannual-monetary-policy-report-to-congress">https://www.banking.senate.gov/hearings/the-semiannual-monetary-policy-report-to-congress</a> at 1:43:00.&#160;<a href="#fnref:4" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:5">
+<p>BCBS Crypto Standard at SCO 60.26 - SCO 60.51.&#160;<a href="#fnref:5" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:6">
+<p>Basel Committee, Consultative Document, Prudential treatment of cryptoasset exposures (Sep. 2021), <a href="https://www.bis.org/bcbs/publ/d519.pdf">https://www.bis.org/bcbs/publ/d519.pdf</a> at 14, n. 19. The minimum total capital requirement for all banks is 8%. At an 8% capital ratio, $12.50 of risk-weighted assets requires $1 in regulatory capital (1/12.5 = 0.08). In practice, most banks hold capital in excess of the 8% minimum capital ratio, either because of supplementary capital requirements or by choice. Bank of New York Mellon, for example, is required to maintain a Common Equity Tier 1 (CET1) capital ratio of 8.5% and regularly maintains a CET1 capital ratio of &gt;11%, which allows it to avoid any restrictions on capital distributions.&#160;<a href="#fnref:6" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+
+        </section>
+        <div class="post-tags">
+          
+          
+          <hr />
+          <nav class="nav tags">
+            <p class="tags">Tags:
+              
+                <a href="/tags/crypto">crypto</a>
+              
+                , <a href="/tags/policy">policy</a>
+              
+            </p>
+          </nav>
+          
+          
+        </div>
+      </div>
+
+      
+      
+    </div>
+
+    </article>
+</main>
+<footer>
+  <div style="display:flex"><a class="soc" href="https://github.com/mud2monarch/" rel="me" title="GitHub"><svg class="feather">
+   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
+</svg></a><a class="border"></a><a class="soc" href="https://x.com/mud2monarch/" rel="me" title="Twitter"><svg class="feather">
+   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#twitter" />
+</svg></a><a class="border"></a><a class="soc" href="https://www.linkedin.com/in/zachrwong/" rel="me" title="LinkedIn"><svg class="feather">
+   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#linkedin" />
+</svg></a><a class="border"></a></div>
+  <div class="footer-info">
+     content © 2025 zach wong  | built with <a href="https://gohugo.io">hugo</a>, <a href="https://github.com/mud2monarch/zachrwong-info">mit open source</a>.
+  </div>
+</footer>
+
+</div>
+    </body>
+</html>

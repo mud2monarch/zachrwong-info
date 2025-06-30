@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html><head lang="en"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Comparing and contrasting PayPal balances with USDC from first principles - Zach Wong</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="A first-principles comparison of PayPal balances and USDC, examining their similarities, differences, and the regulatory implications for stablecoins in the U.S. financial system." />
+	<meta property="og:image" content=""/>
+	<meta property="og:url" content="http://localhost:1313/posts/paypal-balances-usdc-comparison/">
+  <meta property="og:site_name" content="Zach Wong">
+  <meta property="og:title" content="Comparing and contrasting PayPal balances with USDC from first principles">
+  <meta property="og:description" content="A first-principles comparison of PayPal balances and USDC, examining their similarities, differences, and the regulatory implications for stablecoins in the U.S. financial system.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2022-02-03T00:00:00+00:00">
+    <meta property="article:modified_time" content="2022-02-03T00:00:00+00:00">
+    <meta property="article:tag" content="Crypto">
+    <meta property="article:tag" content="Policy">
+    <meta property="article:tag" content="Explainers">
+    <meta property="article:tag" content="Stablecoins">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Comparing and contrasting PayPal balances with USDC from first principles">
+  <meta name="twitter:description" content="A first-principles comparison of PayPal balances and USDC, examining their similarities, differences, and the regulatory implications for stablecoins in the U.S. financial system.">
+
+        <link href="http://localhost:1313/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css" rel="stylesheet">
+	
+
+	
+	<link rel="stylesheet" type="text/css" media="screen" href="http://localhost:1313/css/main.d85b563bb1a8492ec00be237efb339d6b716dba5cbccde815716282bc52ce9fa.css" />
+</head>
+<body>
+        <div class="content"><link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+<header>
+	<div class="main">
+		<a href="http://localhost:1313/">Zach Wong</a>
+	</div>
+	<nav>
+		
+		
+	</nav>
+</header>
+
+<main>
+  <article>
+    <div class="post-container">
+      
+      <div class="post-content">
+        
+          <img src="/2022/comparison_imageONE.png" alt="Featured Image" class="featured-image">
+        
+        <div class="title">
+          <h1 class="title">Comparing and contrasting PayPal balances with USDC from first principles</h1>
+          <div class="meta">Posted on Feb 3, 2022</div>
+        </div>
+        
+        <section class="body">
+          <blockquote>
+<p>For if the people are not equal, they will not have equal things. Rather, from this arises fights and accusations, either when people who are equal have or are distributed unequal things, or when people who are unequal have or are distributed equal things…</p>
+<p><em>The Nicomachean Ethics</em>, 1131a, trans. Bartlett and Collins</p></blockquote>
+<p>Since stablecoins have started to receive scrutiny by US federal regulators, it’s been increasingly popular to compare them to other types of nonbank digital dollars such as PayPal, Cash App, or Venmo balances. This comparison makes intuitive sense because (centralized) stablecoins are a dollar-denominated corporate liability that can be used on a proprietary payments network. If the products are very similar, there exists a nice template for regulation, provided a “like for like” standard is applied. In this post, I compare and contrast PayPal balances with USDC and provide preliminary thoughts on regulatory steps.</p>
+<p><em>These are my independent thoughts and do not necessarily represent the views of my employer.</em></p>
+<h3 id="similarities">Similarities</h3>
+<p><em>Network Character</em>
+PayPal is a proprietary digital payments network. Consumers buying things and merchants selling things use PayPal to transfer value using Paypal’s internal settlement network. While users can choose to pay with ACH or card, for the purposes of this comparison, we’re primarily interested in situations in which a user makes a transaction using his PayPal balance. A PayPal balance is a liability that PayPal issues to the user, and it is convertible to private bank money at any time. When a user makes a payment, he directs PayPal to transfer dollars from his account to the merchant’s account, a transfer that occurs entirely on PayPal’s internal ledger.</p>
+<p>USDC is a stablecoin, which is a tokenized dollar liability that circulates on a public blockchain. Consumers use USDC to transact on public blockchains, whether for trading or other purposes. Users hold USDC in a third-party wallet and then settle USDC transactions on a blockchain such as Ethereum. US consumers that wish to convert their USDC liability to private bank money have a two-step process which involves converting USDC to USD via an exchange (free on Coinbase, at least) then converting the exchange liability to private bank money. USDC issuer Circle does not offer redemption or issuance services to consumers.</p>
+<p>Some have pushed back against the idea that a stablecoin such as USDC is just another proprietary payments network such as PayPal, <a href="https://apnews.com/article/cryptocurrency-technology-business-blockchain-bitcoin-abbe14fba1dfc5e5cb97bb9bb8f15ca7">likening one’s choice of stablecoin to one’s choice of email client</a>. Respectfully, I don’t think the analogy holds. Your choice of email client is more analogous to your choice of crypto wallet than it is to your choice of stablecoin. The asset is like the email protocol, and both rely on network effects for value. Wallets and email clients plug into the common network; they are not the network. Email clients can build nice features that allow you to use different email protocols (like using a web service or a desktop client with the same email address), but that would be analogous to a digital wallet allowing you to seamlessly switch between stablecoins (like how FTX treats all stablecoins and US dollar deposits as a single asset). On the backend, though, the clients are switching networks on your behalf.</p>
+<p>I likewise think it’s most sensible to think of USDC on different blockchains as separate products. It is possible to transfer USDC across blockchains, but it is a multi-step process, at least for consumers. While the products may be very similar, i.e., because the credit and liquidity risk of Solana USDC vs Ethereum USDC don’t differ significantly, they seem similar to, e.g., PayPal vs Venmo balances. PayPal and Venmo are not natively interoperable, and neither are Solana- and Ethereum-based USDC.</p>
+<p><em><strong>Revenue Model</strong></em></p>
+<p>Someone I know is fond of saying about new payments products, “it’s all about the interchange, baby” (this applies to most fintechs, too). Interchange is the fee that the card networks charge merchants for payments using cards. According to <a href="https://www.kansascityfed.org/research/interchange-fees/">research by the Kansas City Fed</a>, merchants in the US pay on average 1.5–2% for the service of accepting card payments. In practice, this figure may be higher because of card processing fees layered on top of interchange costs. Interchange revenue is split between the card networks, card-issuing banks, and other parties involved in the transaction.
+<figure class="img-caption"><img src="/2022/comparison_imageTWO.webp"
+    alt="Flow of fees from a $40 retail purchase. Source."><figcaption>
+      <p>Flow of fees from a $40 retail purchase. <a href="https://www.federalreserve.gov/econresdata/feds/2014/files/201477pap.pdf">Source.</a></p>
+    </figcaption>
+</figure>
+</p>
+<p>Just like the card networks, PayPal’s primary source of revenue is fees on transactions settled via PayPal. While they appear to be pursuing a more diverse revenue base by building out a general purpose financial services experience, 90% of PayPal’s revenue came from transaction fees in <a href="https://s1.q4cdn.com/633035571/files/doc_financials/2021/q3/PYPL-Q3-21-Investor-Update.pdf">Q3 2021</a>. The more people transact on PayPal, the more money PayPal makes.</p>
+<p>USDC issuer Circle, by contrast, is not involved in transactions settled with USDC, so they take no transaction fee. Instead, Circle revenue comes primarily from interest earned on reserve custody. Market competition and regulatory scrutiny has pushed Circle into a very conservative investment portfolio, but since it is full reserve, its assets under management is very large. For Circle, the more USDC in circulation, the more money Circle makes. Additional revenue models are available to Circle as well, especially if they can acquire a banking license in the next few years.</p>
+<p><em><strong>Asset backing</strong></em></p>
+<p>The reserve allocation (and counterparty credit risk) of stablecoin issuers has received a lot of attention in the past year, perhaps because of Tether’s missteps in the past. In <a href="https://www.coindesk.com/markets/2021/02/23/ny-ags-850m-probe-of-bitfinex-tether-ends-in-an-185m-settlement/">February 2021</a>, as part of its settlement with the New York Attorney General, Tether agreed to provide a breakdown of its reserve composition. <a href="https://www.coindesk.com/markets/2021/05/13/tethers-first-reserve-breakdown-shows-token-49-backed-by-unspecified-commercial-paper/">The result</a>, first published in May 2021 was… disappointing, revealing that just 5.1% of Tether was backed by cash or US treasuries. In response, Circle expanded <a href="https://www.centre.io/hubfs/pdfs/attestation/Grant-Thorton_circle_usdc_reserves_07162021.pdf?hsLang=en">its May 2021 reserve attestation</a> to include a breakdown of its reserve allocation. No good deed went unpunished. Competitor Paxos came out with a <a href="https://paxos.com/2021/07/21/a-regulated-stablecoin-means-having-a-regulator/">blog post</a> that blasted Circle for being purportedly “unregulated” and backed by shoddy reserves. Next, <a href="https://www.bloomberg.com/news/articles/2021-08-11/coinbase-drops-promise-of-token-s-cash-backing-that-wasn-t-true?sref=25rnPxpS">a Bloomberg article</a> in August 2021 pointed out that Coinbase’ claim that USDC was backed 1:1 by dollars “in a bank account” was not true. Soon after, Circle <a href="https://www.circle.com/blog/evolving-usdc-reserves-to-100-cash-and-short-duration-us-treasuries">announced</a> that the entire USDC reserve would be held in cash and short-term treasuries, which remains the case today. This reserve mix, arrived at due to market competition (and, perhaps, a fear of regulatory scrutiny), is <em>safer</em> than what is required by Circle’s state money transmitter licenses.</p>
+<p>PayPal also operates under a state money transmission license but has not been subject to the same level of public scrutiny or competitive pressure regarding reserve reinvestment. According to industry participants, nationwide money transmitters conventionally follow the liquidity and credit risk guidelines of the strictest state, apparently Texas, which <a href="https://txdob.ctspublish.com/texas/browse/txdobset/texas/z20001870">requires</a> that 50% of account holders’ assets be held in “permissible investments” <sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>. The result is that PayPal likely uses a higher yielding, more risky asset allocation than what Circle maintains. PayPal does not disclose its reserve allocation, but it is a public company subject to public reporting and independent audits.</p>
+<p><em><strong>Usage Metrics</strong></em></p>
+<p>As I pointed out <a href="https://twitter.com/mud2monarch/status/1465460186437586953?s=20&amp;t=BEgtYEgK-Swf4922y0hSYg">in November</a>, USDC recently passed PayPal in two significant, and roughly comparable, usage metrics. In Q3 2021, PayPal’s Total Payment Volume was $310b while USDC users settled $348b of transactions in the same period. Additionally, at the end of Q3 2021, PayPal reported $37.8b in outstanding consumer balances, and USDC had approximately $38b in total supply at the same time. <sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup></p>
+<p>Of course, the use of PayPal vs. USDC may be different. Consumers regularly use PayPal for everyday purchases, and PayPal reported an Average Purchase Value of $63 at the end of Q3 2021. Meanwhile, the average transfer value for USDC was $96,665 (the median transfer value was $2,079). <sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup> And PayPal certainly has a bigger network: as of Q3 2021, PayPal reported 416mm accounts worldwide whereas ~0.5mm addresses had USDC balances in excess of $10. <sup id="fnref:4"><a href="#fn:4" class="footnote-ref" role="doc-noteref">4</a></sup></p>
+<figure class="img-caption"><img src="/2022/comparison_imageTHREE.webp"
+    alt="Stablecoins have very high average transfer sizes, in line with their primary reported use as trading &amp; institutional tools. Very different than PayPal, which has an average transaction value of $63. Source."><figcaption>
+      <p>Stablecoins have very high average transfer sizes, in line with their primary reported use as trading &amp; institutional tools. Very different than PayPal, which has an average transaction value of $63. <a href="https://coinmetrics.substack.com/p/state-of-the-network-issue-140">Source</a>.</p>
+    </figcaption>
+</figure>
+
+<h3 id="differences">Differences</h3>
+<p>The comparison of USDC with PayPal balances is apt because both are assets that establish proprietary payments networks. However, the networks do differ in two important ways which, in my opinion, reveal the new paradigm created by public blockchains. First, use of USDC is permissionless whereas all users wishing to use PayPal must register. Second, the services required for consumers to use USDC are disaggregated whereas in PayPal they are consolidated.</p>
+<p>Public blockchains are so named because they are publicly readable and writable by anyone, with no prior qualification. USDC, therefore, can be used by anyone in a permissionless way, whether as a consumer or merchant or developer. This contrasts with PayPal, which requires account registration prior to any use of its platform. Additionally, some PayPal privileges, such as the ability to authorize transactions on behalf of another party, are restricted to paid customers. Finally, PayPal implements US KYC and AML regulations which require network participants to provide sensitive identifying information, subject funds to <a href="https://mud2monarch.medium.com/comparing-and-contrasting-paypal-balances-with-usdc-d39ff1cff4f7#:~:text=The%20comparison%20of,increase%20UX%20friction.">withholding</a> or audit, and increase UX friction.</p>
+<p>The second important difference is that the service stack to facilitate USDC use is disaggregated whereas for PayPal it is wholly contained. Circle issues USDC, but wallet services and transaction validation are provided by third parties. In contrast, PayPal serves as the issuer, wallet, network, and custodian for all PayPal funds. Wallet services is a good example of the different ecosystems: Circle CEO Jeremy Allaire <a href="https://twitter.com/jerallaire/status/1488314662261125120?s=20&amp;t=7nfoIWA2BdtzCFz2UwlRnQ">reported recently</a> that 223 digital wallets on iOS and Android support USDC. For PayPal, there is just one digital wallet, and it is the PayPal app.</p>
+<figure class="img-caption"><img src="/2022/comparison_imageFOUR.webp"
+    alt="Public blockchains natively encourage service disaggregation, promoting consumer choice and innovation."><figcaption>
+      <p>Public blockchains natively encourage service disaggregation, promoting consumer choice and innovation.</p>
+    </figcaption>
+</figure>
+
+<p>The cumulative effect of permissionless access and disaggregated services is that innovation built on top of USDC thrives. New PayPal features must be created by PayPal, and developers must work within the confines of PayPal’s API. Consumers, businesses, and developers working with USDC, on the other hand, are free to use USDC in any way that they can imagine and make work technically. The burden to experiment is lower because potential network participants don’t have to go through a lengthy onboarding and vetting process. And public blockchains’ internet native, cross-border nature allows wide discussion &amp; collaboration with “strangers” that people have only met on Twitter, Telegram, or Discord. Finally, because USDC implementation is open source, anyone can fork the contract and improve the service if they believe there is a substantive improvement to be achieved and significant market demand to meet.</p>
+<figure class="img-caption"><img src="/2022/comparison_imageONE.png"
+    alt="A young Aristotle, arm outstretched, explains to his mentor Plato that it would be unjust to require stablecoins to be issued by banks when PayPal has a similar character and risk profile and operates uncontroversially under a money transmission regime; Boomer Plato, left, growls that crypto is a ponzi reminiscent of the Dutch Tulip bubble."><figcaption>
+      <p>A young Aristotle, arm outstretched, explains to his mentor Plato that it would be unjust to require stablecoins to be issued by banks when PayPal has a similar character and risk profile and operates uncontroversially under a money transmission regime; Boomer Plato, left, growls that crypto is a ponzi reminiscent of the Dutch Tulip bubble.</p>
+    </figcaption>
+</figure>
+
+<h3 id="regulatory-implications">Regulatory Implications</h3>
+<p>If two products are the same, they should be regulated the same. And if they are different, they should be regulated differently. This is not just equal treatment under the law but also an intuitive conception of what is right, as Aristotle explained in the <em>Ethics</em>. Based on the similarities and differences between PayPal balances and USDC, then, there seem to me to be some clear regulatory implications.</p>
+<p>First, USDC issuance should not be confined to depository institutions. PayPal is not a depository institution, yet it has the same quantity of customer liabilities as Circle does (or it did; USDC supply has grown an additional $12b since the end of Q3 2021). In fact, because USDC issuance is limited to businesses — which generally require fewer protections than consumers — PayPal balances could be considered more risky than USDC.</p>
+<p>Second, the federal consumer protection regulations that PayPal follows should be followed by financial institutions working with USDC. For example, <a href="https://www.consumerfinance.gov/rules-policy/regulations/1005/6/#b">CFPB regulations require</a> PayPal to refund consumers when they are hacked or defrauded. Likewise, custodial digital wallets facilitating USDC transactions should probably follow these regulations as well. As I explained above, because the USDC service stack is disaggregated, Circle only issues USDC, and this particular regulation likely does not apply to them.</p>
+<p>I don’t think there are any regulatory implications for reserve requirements. Both Circle and PayPal follow state money transmission guidelines, which require at least 50% of customer liabilities to be held in very safe, very liquid assets. It doesn’t seem particularly compelling to require a full asset reserve, either. Separately, though, if there is <em>market competition</em> that demands a full reserve of low-risk assets, that seems perfectly reasonable to me.</p>
+<p>The last point I’ll make is that the primary federal regulator of PayPal is the CFPB, not the SEC or the CFTC or one of the banking agencies. The CFPB implements consumer financial protection regulations; for example, the regulations that require refunds for defrauded or scammed consumers. So far, the CFPB has not made any moves in crypto, but it looks like <a href="https://www.consumerfinance.gov/about-us/newsroom/statement-cfpb-director-chopra-stablecoin-report/">that</a> <a href="https://www.americanbanker.com/news/complaints-about-crypto-are-soaring-is-a-cfpb-crackdown-imminent">may</a> <a href="https://www.bloomberg.com/news/articles/2022-01-26/progressive-crypto-skeptic-set-to-join-consumer-finance-watchdog">change</a> under its ambitious new Director.</p>
+<p>Want to know more about what the CFPB could do in crypto? Subscribe, I’m writing about that next.</p>
+<p><em>These are my independent thoughts and do not necessarily represent the views of my employer.</em></p>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>If anyone who has helped companies set this up wants to weigh in on reserve management requirements &amp; common market practices, please DM or comment! I am not an expert on this.&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2">
+<p>Data from Coin Metrics/The Block and PayPal earnings. PayPal TPV is a headline figure reported in a number of places. For PayPal customer balances, I’m using the “funds payable and amounts due to customers” liability on pg. 8 of <a href="https://s1.q4cdn.com/633035571/files/doc_financials/2021/q3/Q3-21-PayPal-Earnings-Release.pdf">its earnings release</a>.&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:3">
+<p>Data from Glassnode, retrieved 1/30/22: <a href="https://i.imgur.com/IN1N9qk.png">https://i.imgur.com/IN1N9qk.png</a>. 90 day simple moving average.&#160;<a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:4">
+<p>Data from Coin Metrics, <a href="https://coinmetrics.substack.com/p/coin-metrics-state-of-the-network-a0e">&ldquo;State of the Network: Issue 122&rdquo;</a>. I’m not sure what the best, comparable figure for “accounts” would be for USDC, so I just use what Coin Metrics reports in their free weekly update. If anyone has any thoughts on what would be better, please leave a comment or send me a DM on Twitter.&#160;<a href="#fnref:4" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+
+        </section>
+        <div class="post-tags">
+          
+          
+          <hr />
+          <nav class="nav tags">
+            <p class="tags">Tags:
+              
+                <a href="/tags/crypto">crypto</a>
+              
+                , <a href="/tags/policy">policy</a>
+              
+                , <a href="/tags/explainers">explainers</a>
+              
+                , <a href="/tags/stablecoins">stablecoins</a>
+              
+            </p>
+          </nav>
+          
+          
+        </div>
+      </div>
+
+      
+      
+    </div>
+
+    </article>
+</main>
+<footer>
+  <div style="display:flex"><a class="soc" href="https://github.com/mud2monarch/" rel="me" title="GitHub"><svg class="feather">
+   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
+</svg></a><a class="border"></a><a class="soc" href="https://x.com/mud2monarch/" rel="me" title="Twitter"><svg class="feather">
+   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#twitter" />
+</svg></a><a class="border"></a><a class="soc" href="https://www.linkedin.com/in/zachrwong/" rel="me" title="LinkedIn"><svg class="feather">
+   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#linkedin" />
+</svg></a><a class="border"></a></div>
+  <div class="footer-info">
+     content © 2025 zach wong  | built with <a href="https://gohugo.io">hugo</a>, <a href="https://github.com/mud2monarch/zachrwong-info">mit open source</a>.
+  </div>
+</footer>
+</div>
+    </body>
+</html>

@@ -4,19 +4,52 @@
 	<meta name="generator" content="Hugo 0.147.8"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
   <meta charset="UTF-8">
   <title>Zach Wong</title>
-  <link rel="stylesheet" href="/themes/archie/assets/css/main.css">
   <style>
     * {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     }
     
+     
+    .feather {
+      width: 24px;    
+      height: 24px;   
+      vertical-align: middle;   
+      stroke: currentColor;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      fill: none;
+    }
+
+     
+    footer {
+      display: flex;
+      flex-wrap: wrap;  
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+      border-top: 0.4rem dotted var(--bordercl);
+      padding: 2rem 0rem;
+      margin-top: 2rem;
+    }
+
+    .soc {
+      display: inline-flex;  
+      align-items: center;
+      border-bottom: none;
+      margin: 0 0.25rem;
+    }
+    .soc:hover{
+      color: white;
+    }
+
     html {
         color: #232333;
         font-family: 'Roboto Mono', monospace;
         font-size: 1.12em;
         line-height: 1.6em;
     }
-    body { display: block; margin: 8px auto; max-width: 1280px; }
+    body { display: block; margin: 8px auto; max-width: 70ch; }
 
     a {
     border-bottom: 3px solid red;
@@ -158,6 +191,19 @@
   </dl>
   <h3 class="link-to-writing"><a href="/writing">LINK TO ALL WRITING</a></h3>
   <hr />
-  <p class="footer">content © 2025 zach wong | built with <a href="https://gohugo.io">hugo</a> and <a href="https://github.com/mud2monarch/zachrwong-info">mit open source</a></p>
 </body>
+<footer>
+  <div style="display:flex"><a class="soc" href="https://github.com/mud2monarch/" rel="me" title="GitHub"><svg class="feather">
+   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
+</svg></a><a class="border"></a><a class="soc" href="https://x.com/mud2monarch/" rel="me" title="Twitter"><svg class="feather">
+   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#twitter" />
+</svg></a><a class="border"></a><a class="soc" href="https://www.linkedin.com/in/zachrwong/" rel="me" title="LinkedIn"><svg class="feather">
+   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#linkedin" />
+</svg></a><a class="border"></a></div>
+  <div class="footer-info">
+     content © 2025 zach wong  | built with <a href="https://gohugo.io">hugo</a>, <a href="https://github.com/mud2monarch/zachrwong-info">mit open source</a>.
+  </div>
+</footer>
+
+
 </html>

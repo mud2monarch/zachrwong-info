@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html><head lang="en"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Hackathon project: extracting BigQuery table schemas for use with an LLM - Zach Wong</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Short write-up of a CLI tool to extract the schema of any BigQuery table into a text file for use with LLMs." />
+	<meta property="og:image" content=""/>
+	<meta property="og:url" content="http://localhost:1313/posts/uni-schema-tool-demo/">
+  <meta property="og:site_name" content="Zach Wong">
+  <meta property="og:title" content="Hackathon project: extracting BigQuery table schemas for use with an LLM">
+  <meta property="og:description" content="Short write-up of a CLI tool to extract the schema of any BigQuery table into a text file for use with LLMs.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-05-23T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-05-23T00:00:00+00:00">
+    <meta property="article:tag" content="Personal Projects">
+    <meta property="article:tag" content="Coding">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Hackathon project: extracting BigQuery table schemas for use with an LLM">
+  <meta name="twitter:description" content="Short write-up of a CLI tool to extract the schema of any BigQuery table into a text file for use with LLMs.">
+
+        <link href="http://localhost:1313/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css" rel="stylesheet">
+	
+
+	
+	<link rel="stylesheet" type="text/css" media="screen" href="http://localhost:1313/css/main.d85b563bb1a8492ec00be237efb339d6b716dba5cbccde815716282bc52ce9fa.css" />
+</head>
+<body>
+        <div class="content"><link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+<header>
+	<div class="main">
+		<a href="http://localhost:1313/">Zach Wong</a>
+	</div>
+	<nav>
+		
+		
+	</nav>
+</header>
+
+<main>
+  <article>
+    <div class="post-container">
+      
+      <div class="post-content">
+        
+        <div class="title">
+          <h1 class="title">Hackathon project: extracting BigQuery table schemas for use with an LLM</h1>
+          <div class="meta">Posted on May 23, 2025</div>
+        </div>
+        
+        <section class="body">
+          <p>At Uniswap Labs’ biannual onsites, we dedicate most of the week to a company hackathon. It’s a time to think creatively, work on personal projects related to work, and collaborate with others. This time around, I wrote a short script to gather and coalesce BigQuery table schemas into a text document for use with an LLM. An executable, source code, and a usage guide are available on <a href="https://github.com/mud2monarch/personal-projects/tree/main/uni-schema">my Github</a>.</p>
+<h3 id="the-problem-to-solve"><strong>The problem to solve</strong></h3>
+<p>As part of my work, I regularly use LLMs to help with data queries. We have a broad set of high-quality onchain and offchain data stored in Google BigQuery, and I write SQL to access and transform the data into actionable insights. LLMs — e.g., Claude, ChatGPT — are very helpful for accelerating that work because they help me quickly iterate on my code.</p>
+<p>An important part of using LLMs to their max effectiveness is ensuring that your prompt has the necessary <em>context</em> for the LLM. Most simply, if you’re asking an LLM to write a SQL query that roughly takes the form of <code>SELECT (column_names) FROM (table_name)</code>, you need to provide the LLM the relevant column and table names. If you don’t, you’ll need to edit them manually before running the query, which can be tedious.</p>
+<h3 id="what-i-do-now"><strong>What I do now</strong></h3>
+<p>You could verbally describe the columns and table names, but it’s pretty tedious. Instead, I typically provide the LLM a screenshot of the table schema, which shows the model the column names and their types. However, this has a few drawbacks:</p>
+<ol>
+<li>Most models only allow four image uploads, so this doesn&rsquo;t work for queries that requires &gt;4 tables, which is common.</li>
+<li>The model has to “tokenize” the screenshot, which introduces some error vs. text tokenization (I think). This could lead to less accuracy.</li>
+<li>Images are not “semantically dense” when it comes to the context tokens that they consume. For example, the image of a table schema I tested used 2,205 tokens while the text representation of the table schema used 668 tokens — 33% of the image. If you feed an LLM more tokens than strictly necessary, it will perform worse, all else equal.</li>
+<li>While small, it takes a little bit of repetitive effort to find and provide the relevant table schema to the model. This is a small, but constant, annoyance.</li>
+</ol>
+<h3 id="what"><strong>What&rsquo;s better</strong></h3>
+<p>A new standard for providing context to models has emerged, the <a href="https://directory.llmstxt.cloud/"><strong>llms.txt standard</strong></a>. An llms.txt file is essentially a compressed set of documentation, that makes it easier for developers to use LLMs to integrate the API. <a href="https://docs.anthropic.com/llms.txt"><strong>Here is Anthropic’s llms.txt file</strong></a>. Other AI tools like Cursor use similar concepts — you can define context in a ‘cursor_rules.md’ file that guides the LLM’s output according to your preferences.</p>
+<h3 id="the-project"><strong>The Project</strong></h3>
+<p>I wanted to write a tool that could programmatically pull schemas for any table in our Google BigQuery into a single text file. The idea would be to feed that single text file into each of my queries so that any LLM I use would have full information about the schemas and table names with which I work.</p>
+<h3 id="what-i-made"><strong>What I made</strong></h3>
+<p>Conceptually, <a href="https://github.com/mud2monarch/personal-projects/blob/main/uni-schema/src/main.rs"><strong>the script</strong></a> is very straightforward. Google provides <a href="https://cloud.google.com/bigquery/docs/reference/rest/v2/tables/get"><strong>relatively usable APIs</strong></a> that help users identify and collect information about Google BigQuery assets — exactly what I wanted to do. At a high level, I:</p>
+<ol>
+<li>Intake the user’s arguments, which include some config details (credentials, output filepath) and the tables that the user wants to collect (lns. 98-134)</li>
+<li>Connect to the Google BigQuery API and authenticate (lns. 136-169)</li>
+<li>Every table in Google BigQuery is defined by a unique <code>project.dataset.table</code> identifier, so I iterate through the user’s designated projects, datasets, and tables to collect all table names (lns. 172-266)</li>
+<li>Collect the schema for every table from the Google BigQuery API (lns. 269-309).</li>
+<li>Write every schema to a text file, with formatting (lns. 314-374).</li>
+</ol>
+<p>For this project, I used the <code>clap</code>, <code>serde</code>, <code>reqwest</code>, and <code>yup_oauth2</code> crates for the first time 🙂</p>
+<p>And it works! Here’s a demo I made for the hackathon showcase:</p>
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/ytdzjhRwQzY?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+    </div>
+
+<h3 id="reflections"><strong>Reflections</strong></h3>
+<p>I’ve already been using this file to accelerate my work. I can more readily chat with the LLM I’m using like I would another employee. Referencing “the blocks table” and specific columns and correcting work in natural language rather than writing SQL myself makes iteration much faster. Here are some reflections on the project:</p>
+<ul>
+<li>Using AI helps you figure out how to use AI better.</li>
+<li>I think the context file I generated could save me up to 40 mins per day on analysis-intensive days (+ a good amount of mental overhead). That&rsquo;s about an 8% increase in productivity (if I worked eight hour days). While that might not sound like too too much, it’s being applied to a base where I&rsquo;m already 1.7-2x more productive than I was 1.5 years ago. These improvements compound over time</li>
+<li>A 10% productivity improvement for a typical tech employee is equivalent to something like $30k/yr including benefits. Capital investments on internal AI tooling seem well, well worth the cost.</li>
+<li>I like writing Rust! As a beginner engineer, I don’t know all of the errors that I might run into. Writing Rust with robust error handling and strong types <em>feels</em> (at the very least) very secure and reliable. When I write and run Python scripts, I often feel like I’m just praying they execute if I return to them a few months later.</li>
+</ul>
+<p><em>You can use this tool yourself! <a href="https://github.com/mud2monarch/personal-projects/tree/main/uni-schema">Check out the ReadMe and Usage guide for more information</a>.</em></p>
+
+        </section>
+        <div class="post-tags">
+          
+          
+          <hr />
+          <nav class="nav tags">
+            <p class="tags">Tags:
+              
+                <a href="/tags/personal-projects">personal projects</a>
+              
+                , <a href="/tags/coding">coding</a>
+              
+            </p>
+          </nav>
+          
+          
+        </div>
+      </div>
+
+      
+      
+    </div>
+
+    </article>
+</main>
+<footer>
+  <div style="display:flex"><a class="soc" href="https://github.com/mud2monarch/" rel="me" title="GitHub"><svg class="feather">
+   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
+</svg></a><a class="border"></a><a class="soc" href="https://x.com/mud2monarch/" rel="me" title="Twitter"><svg class="feather">
+   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#twitter" />
+</svg></a><a class="border"></a><a class="soc" href="https://www.linkedin.com/in/zachrwong/" rel="me" title="LinkedIn"><svg class="feather">
+   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#linkedin" />
+</svg></a><a class="border"></a></div>
+  <div class="footer-info">
+     content © 2025 zach wong  | built with <a href="https://gohugo.io">hugo</a>, <a href="https://github.com/mud2monarch/zachrwong-info">mit open source</a>.
+  </div>
+</footer>
+
+</div>
+    </body>
+</html>

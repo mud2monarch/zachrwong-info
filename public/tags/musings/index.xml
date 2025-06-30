@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Musings on Zach Wong</title>
+    <link>http://localhost:1313/tags/musings/</link>
+    <description>Recent content in Musings on Zach Wong</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <copyright>content © 2025 zach wong</copyright>
+    <lastBuildDate>Wed, 26 Feb 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/musings/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Believe in Something Real</title>
+      <link>http://localhost:1313/posts/believe-in-something-real/</link>
+      <pubDate>Wed, 26 Feb 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/believe-in-something-real/</guid>
+      <description>&lt;p&gt;&lt;em&gt;These are my independent thoughts and do not necessarily represent the views of my employer. Cover art: &amp;ldquo;The Monk by the Sea&amp;rdquo; by Caspar David Friedrich, 1808-1810.&lt;/em&gt;&lt;/p&gt;&#xA;&lt;p&gt;A malaise pervades the crypto industry today. On one hand, the regulatory environment has never looked better, and TradFi interest in public blockchains is at an all-time high. Yet internally, crypto feels more &lt;a href=&#34;https://x.com/miaferrariii/status/1895863245027885361&#34;&gt;stagnant&lt;/a&gt;, circular, and cynical than ever. How can that be?&lt;/p&gt;&#xA;&lt;p&gt;I think it&amp;rsquo;s because crypto today only exists to serve cryptoassets. While the total market cap of crypto nears $3t, very little of that value is exogenous to our industry. The tokenized traditional assets that have come onchain (dollars, t-bills) have been tokenized primarily to serve &lt;em&gt;crypto&amp;rsquo;s&lt;/em&gt; needs, not the imperatives of the assets. Crypto has not improved the traditional financial system; yet.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Disaggregating Decentralization</title>
+      <link>http://localhost:1313/posts/disaggregating-decentralization/</link>
+      <pubDate>Sun, 26 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/disaggregating-decentralization/</guid>
+      <description>&lt;p&gt;“Decentralization” is an ubiquitous word in the discussion, marketing, and governance of crypto, but I find it to be confusing — and confused. Sometimes people tout decentralization as a primary benefit when they seem to care about a different characteristic instead. I’m not sure decentralization is important for its own sake; instead, it seems good &lt;em&gt;for other things&lt;/em&gt;. I think we should speak simply about those other things, rather than using “decentralization” as a catch-all.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Notes from the 6/13/22 Omarova-Brooks Conversation at NCRC</title>
+      <link>http://localhost:1313/posts/omarova-brooks-conversation/</link>
+      <pubDate>Wed, 24 Aug 2022 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/omarova-brooks-conversation/</guid>
+      <description>&lt;figure class=&#34;img-caption&#34;&gt;&lt;img src=&#34;http://localhost:1313/2022/brooks_imageONE.webp&#34;&#xA;    alt=&#34;Caption this.&#34;&gt;&lt;figcaption&gt;&#xA;      &lt;p&gt;Caption this.&lt;/p&gt;&#xA;    &lt;/figcaption&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;On June 13, 2022, former acting Comptroller of the Currency Brian Brooks and law professor Saule Omarova participated in a panel hosted by the National Community Reinvestment Coalition (NCRC) titled &lt;a href=&#34;https://www.youtube.com/watch?v=ihl8nFxgL8Y&#34;&gt;“Discerning a Regulatory Approach to Crypto Currencies and Digital Assets.”&lt;/a&gt; Given the panelists, I thought this would be an enlightening conversation. Brian Brooks is a capable and insightful proponent of pro-innovation crypto regulation, and Professor Omarova is a well-respected progressive financial scholar. In particular, it seemed like a useful opportunity to hear an unadulterated, progressive perspective on crypto regulation (i.e., as opposed to political speech from politicians such as Senator Warren).&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

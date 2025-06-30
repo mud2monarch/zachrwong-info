@@ -3,19 +3,52 @@
 <head>
   <meta charset="UTF-8">
   <title>Zach Wong</title>
-  <link rel="stylesheet" href="/themes/archie/assets/css/main.css">
   <style>
     * {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     }
     
+    /* Feather icons (override size) */
+    .feather {
+      width: 24px;   /* reduce from 24px */
+      height: 24px;  /* reduce from 24px */
+      vertical-align: middle;  /* align with text baseline */
+      stroke: currentColor;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      fill: none;
+    }
+
+    /* Footer social links */
+    footer {
+      display: flex;
+      flex-wrap: wrap; /* allow wrapping on small screens */
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+      border-top: 0.4rem dotted var(--bordercl);
+      padding: 2rem 0rem;
+      margin-top: 2rem;
+    }
+
+    .soc {
+      display: inline-flex; /* inline layout */
+      align-items: center;
+      border-bottom: none;
+      margin: 0 0.25rem;
+    }
+    .soc:hover{
+      color: white;
+    }
+
     html {
         color: #232333;
         font-family: 'Roboto Mono', monospace;
         font-size: 1.12em;
         line-height: 1.6em;
     }
-    body { display: block; margin: 8px auto; max-width: 1280px; }
+    body { display: block; margin: 8px auto; max-width: 70ch; }
 
     a {
     border-bottom: 3px solid red;
@@ -157,6 +190,6 @@
   </dl>
   <h3 class="link-to-writing"><a href="/writing">LINK TO ALL WRITING</a></h3>
   <hr />
-  <p class="footer">content © 2025 zach wong | built with <a href="https://gohugo.io">hugo</a> and <a href="https://github.com/mud2monarch/zachrwong-info">mit open source</a></p>
 </body>
+{{ partial "footer.html" . }}
 </html>

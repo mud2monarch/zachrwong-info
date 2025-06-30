@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>TEEs on Zach Wong</title>
+    <link>http://localhost:1313/tags/tees/</link>
+    <description>Recent content in TEEs on Zach Wong</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <copyright>content © 2025 zach wong</copyright>
+    <lastBuildDate>Thu, 15 May 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/tees/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>A lightweight introduction to TEEs and how they’re being used today</title>
+      <link>http://localhost:1313/posts/a-lightweight-introduction-to-tees/</link>
+      <pubDate>Thu, 15 May 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/a-lightweight-introduction-to-tees/</guid>
+      <description>&lt;p&gt;One of the most exciting areas of blockchain innovation is the use of “TEEs” to introduce &lt;em&gt;verifiability&lt;/em&gt; in important systems. A “TEE” is a special kind of computer that has an embedded private key. The computer can use the private key to make verifiable attestations about its behavior.&lt;/p&gt;&#xA;&lt;p&gt;As discussed prior in this blog (see &lt;a href=&#34;https://paragraph.com/@mud2monarch/disaggregating-decentralization&#34;&gt;Gyges Lydias: Disaggregating Decentralization&lt;/a&gt;), verifiability is one of the key goods provided by decentralization. In this case, even though a TEE may be run by a single party, it still provides valuable user protections worth pursuing.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

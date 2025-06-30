@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html><head lang="en"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Cryptography to Cryptocurrency: Lessons on Privacy and Policy from Steven Levy’s “Crypto” - Zach Wong</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="An article drawing parallels between the development and political fight for cryptography and the same events happening again for cryptocurrency." />
+	<meta property="og:image" content=""/>
+	<meta property="og:url" content="http://localhost:1313/posts/crypto-lessons-from-levy/">
+  <meta property="og:site_name" content="Zach Wong">
+  <meta property="og:title" content="Cryptography to Cryptocurrency: Lessons on Privacy and Policy from Steven Levy’s “Crypto”">
+  <meta property="og:description" content="An article drawing parallels between the development and political fight for cryptography and the same events happening again for cryptocurrency.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2022-07-28T00:00:00+00:00">
+    <meta property="article:modified_time" content="2022-07-28T00:00:00+00:00">
+    <meta property="article:tag" content="Crypto">
+    <meta property="article:tag" content="Policy">
+    <meta property="article:tag" content="Explainers">
+    <meta property="article:tag" content="Stablecoins">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Cryptography to Cryptocurrency: Lessons on Privacy and Policy from Steven Levy’s “Crypto”">
+  <meta name="twitter:description" content="An article drawing parallels between the development and political fight for cryptography and the same events happening again for cryptocurrency.">
+
+        <link href="http://localhost:1313/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css" rel="stylesheet">
+	
+
+	
+	<link rel="stylesheet" type="text/css" media="screen" href="http://localhost:1313/css/main.d85b563bb1a8492ec00be237efb339d6b716dba5cbccde815716282bc52ce9fa.css" />
+</head>
+<body>
+        <div class="content"><link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+<header>
+	<div class="main">
+		<a href="http://localhost:1313/">Zach Wong</a>
+	</div>
+	<nav>
+		
+		
+	</nav>
+</header>
+
+<main>
+  <article>
+    <div class="post-container">
+      
+      <div class="post-content">
+        
+          <img src="/2022/crypto_imageONE.webp" alt="Featured Image" class="featured-image">
+        
+        <div class="title">
+          <h1 class="title">Cryptography to Cryptocurrency: Lessons on Privacy and Policy from Steven Levy’s “Crypto”</h1>
+          <div class="meta">Posted on Jul 28, 2022</div>
+        </div>
+        
+        <section class="body">
+          <blockquote>
+<p>The practice (of preserving anonymity) was crucial in the formation of the United States itself, and was arguably as American as apple pie. As cypherpunk historians loved to point out, the model for the Ender’s Game debate may have been the Federalist Papers, with parts written by James Madison, John Jay, and Alexander Hamilton but published under the pseudonym Publius. And when Thomas Paine wrote Common Sense, he originally signed it “An Englishman.” As the Supreme Court would note, “Anonymous pamphlets, leaflets, brochures, and even books have played an important role in the progress of mankind,” a role the Court has sustained in consistent ruling.</p></blockquote>
+<p><em>Steven Levy in &ldquo;Crypto: How the Code Rebels Beat the Government Saving Privacy in the Digital Age,&rdquo; pg. 222</em></p>
+<hr>
+<p>Before COVID-19, Bitcoin had its own “lab leak” hypothesis. The NSA, the story goes, created Bitcoin, built in a backdoor, mined one million coins, and then released the experiment onto the world to track everyone/preempt the dominance of another country’s currency/fund black ops/etc. While probably untrue, you could be forgiven for finding it plausible: the NSA developed its own version of public key cryptography years before Diffie and Helman published their first research paper. Instead of publishing the idea, though, it kept the technology sequestered inside its secretive lab at Fort Meade.</p>
+<p>This anecdote from Steven Levy’s “Crypto: How the Code Rebels Beat the Government Saving Privacy in the Digital Age” is just one of many instances in which the development of consumer-grade internet cryptography — followed by its ubiquitous use now— seems eerily similar to the situation in which crypto<em>currency</em> finds itself today. The book is a nonfiction documentation of the public development of public key cryptography, its first commercial implementations, and the US Government’s constant attempts to suppress it. The fact that Levy wrote the book in 2005, three years before the NSA published the Bitcoin White Paper, makes the parallels even more compelling.</p>
+<p>See for yourself. Below are select passages from Crypto with some commentary about modern day parallels. All quotes are verbatim, although I’ve disposed of some ellipses for convenience.</p>
+<p><em>These are my independent thoughts and do not necessarily represent the views of my employer.</em></p>
+<figure class="img-caption"><img src="/2022/crypto_imageONE.webp"
+    alt="Ron Rivest, Adi Shamir, and Leonard Adleman, the creators of RSA cryptography. RSA used a one-way function to enable public key cryptography."><figcaption>
+      <p>Ron Rivest, Adi Shamir, and Leonard Adleman, the creators of RSA cryptography. RSA used a one-way function to enable public key cryptography.</p>
+    </figcaption>
+</figure>
+
+<p>Ray Ozzie was the lead developer for the Lotus Notes program, one of the first commercial implementations of public key cryptography. Notes users were imagined to be businessmen and women who needed to send messages over the internet that potentially contained highly sensitive trade secrets. The impetus for adding cryptography to Notes was the same for developing Bitcoin:</p>
+<blockquote>
+<p>Ozzie continued to describe the way a traditional computer security system would deal with the problem, that is, via a central authority — essentially, a mandatory hub through which all traffic passed. If the central authority screwed up, turned cooked, or turned you in, the whole system failed. Its very spirit was locked into an age that was destined for the junk heap.
+Ozzie saw Notes not only as a pioneering project but also as a seminal example of the networked future, where the masses would have their own computers and not have to check in with some massive digital Big Brother. Like the phone system, communications would be one-to-one, people communicating directly with their peers.</p></blockquote>
+<p>Satoshi said, “the problem with centralized systems is all the trust that is required for it to work.” Reliance on a central intermediary exposes valuable data and sensitive information, and if the intermediary fails, your valuables are suddenly out in the open. It was the same problem in 1984, and Ozzie replaced the intermediary with cryptography, substituting mathematical truth for trust.</p>
+<hr>
+<p>Not everyone was on board. Ozzie had to bat down bad proposals.</p>
+<blockquote>
+<p>“We believe this is a bad approach,” wrote Ozzie of the central-authority model. “It changes the distributed nature of the network back into the old ‘centralized data’ approach of mainframes… It also resurrects the problems with the ‘traditional solution,’ that is, trust in people and/or mechanisms that are completely understood.”</p></blockquote>
+<p>Trusted, centralized systems are the model we already have. <em>Public</em> key cryptography and <em>public</em> blockchains are the innovation. Sharing this paragraph with every Fortune 500 CEO could have saved billions in R&amp;D spend over the past decade.</p>
+<hr>
+<p>Phil Zimmerman founded PGP, a way to encrypt and authenticate communications, and released it to the public. Levy on Zimmerman…</p>
+<blockquote>
+<p>Zimmerman was also a sophisticated political activist who had twice been dragged off to a holding pen for asserting his opinion. He now understood that in the computer age, government had an extremely powerful tool for monitoring dissent: electronic surveillance. Not only could Big Brother types stick their collective ear into phone conversations, but they could pluck the increasingly popular e-mail messages out of the digital ether and read business plans and shameful secrets to their black, black hearts’ content. While electronic mail was a terrific thing, it actually represented a step backward in privacy: even with relatively insecure physical mail, people had sealed envelopes to protect the privacy of their messages.</p></blockquote>
+<p>Do I have to be the one to say it? Transactions on public blockchains right now are a privacy nightmare. All of your on-chain activity is publicly recorded for use and collection by anyone interested enough to try, and it can easily be connected to your real-life profile by anyone who has (or ever obtains) the requisite information, such as your exchange or a merchant. But on-chain privacy is in the same state as our electronic communications were back in the 1990s. Soon, everyone realized that it was imperative to encrypt messages — at least during transmission — and encrypted email is now the default. If crypto financial systems are going to become mainstream tools for everyday commerce and financial activity, privacy-preserving tools and protocols <em>must</em> become mainstream.</p>
+<p>Privacy-preserving technologies for crypto assets are needed and legal. The ability to use a mixer, a zero-knowledge protocol, or a privacy coin should be as much of an afterthought as the ability to use email, Signal, or encrypted data storage. When this happens, some law enforcement and bad actors may not be happy, but it doesn’t matter: privacy ought to be our right.</p>
+<p>Separately, from a policy and advocacy perspective, I believe we need to move away from the “blockchains are always more traceable” talking point. What happens when blockchains aren’t traceable? The argument can’t be that users on blockchains have no privacy; it must be that we prefer to liberally preserve rights, even if bad actors may sometimes exploit that generosity.</p>
+<hr>
+<p>When the public developed public key cryptography, the NSA attempted to shut it down, alleging it was a national security concern. The NSA threatened businesses like Jim Bidzos’ RSA Data Security Inc. (the company formed by Rivest, Shamir, and Adleman to monetize RSA public key cryptography) with all manner of threats in an attempt to stop the proliferation of the technology.</p>
+<blockquote>
+<p>According to Bidzos, the final NSA attempt at sabotaging the deal came when an agency official called (Microsoft CTO Nathan) Myhrvold and said, basically, “Don’t do (the deal with Bidzos).”</p>
+<p>Bidzos was furious. As he recollects now, he dialed up the highest ranking person he knew and laid out what he had heard. Then, before his contact could utter a word in reply, he demanded that the official fix the problem and call Microsoft back to tell them that the agency had made a big mistake. “If that doesn’t work, you’re going to answer to the congressman in my district,” he said. “If that doesn’t work, you’re going to answer to a district attorney, because I’m going to file a complaint. If that doesn’t work, I’ll try the New York Times. But one way or another, if you don’t fix this, I’m gonna make you answer for it.” Bidzos more or less expected his contact to deny everything, or at least insist that he knew nothing of the sabotage. Instead, Bidzos claims, the man said, “I’ll call them.” And, according to Bidzos, his contact called Microsoft and recanted.</p></blockquote>
+<p>While I don’t know of any parallel in the ongoing cryptocurrency saga, I like this passage because it showcases Bidzos’ excellent sense of all of the political tools at his disposal. Politics is incredibly complex, and outcomes are not linear (e.g., the president wanted a policy, so that’s what happened). There are thousands of levers to pull to get what you want — Act of Congress, congressional oversight, agency rulemaking, corporate comms, talking to the press, working through political elections, local politics, and many other strategies.</p>
+<hr>
+<p>Separately, Zimmerman was promoting PGP.</p>
+<blockquote>
+<p>Zimmermann talked, and generated publicity. He seldom failed to note that Burmese rebels reportedly used PGP to avoid the deadly consequences of being discovered in antigovernment activities in testimony he also noted that he’d received an effusive thank-you from a Latvian patriot. When confronted with the charges from law enforcement agencies that PGP was particularly useful to criminals — in one Sacramanto case, the cops couldn’t read a pedophile’s diary encrypted with Zimmermann’s software — he argued that all technology has trade-offs.</p>
+<p>Perhaps the highlight of Zimmerman’s odd celebrity came one day in San Francisco. The young lady lap dancing in proximity to Zimmermann asked casually what he did. (He told her).</p>
+<p>The lapdance stopped in midgyration. “You’re Phil Zimmermann?” she asked in awe. “I know all about PGP!”</p></blockquote>
+<p>Rebels abroad; dissident patriots (branded as terrorists); sex workers; and, yes, despicable groups such as pedophiles. The first adopters of cryptography and cryptocurrency.</p>
+<hr>
+<blockquote>
+<p>In a draft of Senate Bill 266, introduced January 1991, Biden (then the chair of the Senate Judiciary Committee) inserted some new language:</p>
+<p>“It is the sense of Congress that providers of electronic communications services and manufacturers of electronic communications service equipment shall ensure that communications systems permit the government to obtain the plaintext contents of voice, data, and other communications when appropriately authorized by law.” [Emphasis added].</p>
+<p>That sentence was included at the explicit request of the FBI. And what a sentence it was! It plunged a virtual dagger into the heart of the crypto revolution.</p>
+<p>To Zimmerman, S. 266 was the ultimate deadline. If he didn’t get PGP out into the world now, the government might prevent its very existence.</p></blockquote>
+<p>Phil Zimmerman and his friends uploaded PGP to the internet, where it spread across the world instantly.</p>
+<blockquote>
+<p>Ironically, Joseph Biden’s offending language, the impetus for Zimmerman’s extraordinary step, met a much less enthusiastic response than PGP did. Senator Biden had been taken by surprise at the huge expression of public outrage (fueled by civil liberties groups) at the stealth antiprivacy language he had introduced. By June, he had quietly withdrawn the clause.</p></blockquote>
+<p>The United States has already debated the validity and merit of privacy-preserving technologies. And? We decided that they are valid and meritorious. The legitimate interest of the people in protecting their communications trumped any government interest in stopping theoretical bad guys, real or not. <a href="https://www.coincenter.org/the-case-for-electronic-cash/#the-moral-case-for-electronic-cash:~:text=Even%20when%20the%20government%20might%20know%20that%20one">The same protections ought to extend to our rights to transact.</a> In 1991, it was a strong, coordinated public reaction and political coalition that prevented a harmful US Government stance from developing.</p>
+<p>But equally, it required Phil Zimmerman to build and launch a product that people loved and found useful. PGP is still used today. If millions — hopefully billions — of people onboard to crypto products, the public policy case gets a lot easier to make.</p>
+<hr>
+<p>Seeking a compromise, the NSA proposed a “Clipper Chip,” a proprietary encryption microchip that would encrypt data for commercial users but featured a backdoor ostensibly only accessible to the NSA. Levy writes,</p>
+<blockquote>
+<p>The very basis for the scheme — a government means by which to flip the “descramble” switch for its own purposes — was offensive to most people. All opponents had to do was use a simple analogy — What if you had to leave a copy of your front door key at the police station? — and even a Joe Sixpack who didn’t know encryption from a forward pass would be an anti-Clipper convert. “The idea that government holds the keys to all our locks, even before anyone has been accused of committing a crime, doesn’t parse with the public,” explained Jerry Berman of the EFF. “It’s not America.”</p></blockquote>
+<p>Call me naïve, but I agree. It took advocacy and hard work to push back, but the Clipper Chip never had a shot. That’s not America.</p>
+<blockquote>
+<p>The government did its best to defend the scheme. (NSA General Counsel) Stewart Baker briefed industry figures… Your view of privacy, he told them, reflects a hopelessly naïve view of the world. “By insisting on having a claim to privacy that is beyond social regulation, we are creating a world in which [crooks and terrorists] will flourish and be able to do more than they can do today,” Baker warned.</p></blockquote>
+<p>Same old same old.</p>
+<hr>
+<p>We won, and the Clipper Chip was never implemented. Instead, export control rules regarding commercial cryptography were relaxed by an Act of Congress.</p>
+<blockquote>
+<p>By 1999, an emboldened Congress was finally rallying around the SAFE bill, the three-year-old proposed legislation to relax the export rules.</p></blockquote>
+<p>Given these eerie similarities, perhaps the timeline for cryptography’s acceptance can inform our understanding of where we are in the cryptocurrency policy evolution. Diffie-Hellman key exchange was published in 1976. The NSA immediately took notice and attempted to contain the technology, working behind-the-scenes in the government and directly with private companies. Lotus first attempted to introduce encryption to a major commercial product in 1986. Major legislation concerning cryptography first emerged in 1992, and it took until 2000 to pass a law loosening the export restrictions, 24 years after the first paper on cryptography.</p>
+<p>Now cryptocurrency: While other experiments predate Bitcoin, the White Paper was published in 2008. At a high level, I think it is reasonable to say that “broad” adoption of cryptocurrency has only started recently, mostly with <a href="https://www.wsj.com/articles/turks-pile-into-bitcoin-and-tether-to-escape-plunging-lira-11641982077">stablecoin payments and bitcoin savings</a> serving people around the world. While advocates in Washington have been fighting the good fight for almost a decade, major attempts by the government to regulate cryptocurrency outside of AML and tax exploded in Fall 2021. 24 years after the Bitcoin White Paper is 2032.</p>
+<p>While it may not feel like it in the whirlwind of our industry, adoption and regulation take time — a lot of time. That is just one way in which the story of the emergence of commercial encryption can inform our advocacy for cryptocurrency today. It should also firm our resolve on important topics: privacy-preserving technologies have been villainized before; commercial demand for such technologies <strong>will emerge</strong>; and the United States thoroughly litigated the issue in the past, and we decided for personal liberty.</p>
+<p><em>These are my independent thoughts and do not necessarily represent the views of my employer.</em></p>
+
+        </section>
+        <div class="post-tags">
+          
+          
+          <hr />
+          <nav class="nav tags">
+            <p class="tags">Tags:
+              
+                <a href="/tags/crypto">crypto</a>
+              
+                , <a href="/tags/policy">policy</a>
+              
+                , <a href="/tags/explainers">explainers</a>
+              
+                , <a href="/tags/stablecoins">stablecoins</a>
+              
+            </p>
+          </nav>
+          
+          
+        </div>
+      </div>
+
+      
+      
+    </div>
+
+    </article>
+</main>
+<footer>
+  <div style="display:flex"><a class="soc" href="https://github.com/mud2monarch/" rel="me" title="GitHub"><svg class="feather">
+   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
+</svg></a><a class="border"></a><a class="soc" href="https://x.com/mud2monarch/" rel="me" title="Twitter"><svg class="feather">
+   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#twitter" />
+</svg></a><a class="border"></a><a class="soc" href="https://www.linkedin.com/in/zachrwong/" rel="me" title="LinkedIn"><svg class="feather">
+   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#linkedin" />
+</svg></a><a class="border"></a></div>
+  <div class="footer-info">
+     content © 2025 zach wong  | built with <a href="https://gohugo.io">hugo</a>, <a href="https://github.com/mud2monarch/zachrwong-info">mit open source</a>.
+  </div>
+</footer>
+
+</div>
+    </body>
+</html>
