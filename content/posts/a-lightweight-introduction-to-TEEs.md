@@ -9,6 +9,8 @@ featured = "/2025/tee_matching.webp"
 +++
 One of the most exciting areas of blockchain innovation is the use of “TEEs” to introduce *verifiability* in important systems. A “TEE” is a special kind of computer that has an embedded private key. The computer can use the private key to make verifiable attestations about its behavior.
 
+**This is bold text**, this is not bold text. Do you like it better?
+
 As discussed prior in this blog (see [Gyges Lydias: Disaggregating Decentralization](https://paragraph.com/@mud2monarch/disaggregating-decentralization)), verifiability is one of the key goods provided by decentralization. In this case, even though a TEE may be run by a single party, it still provides valuable user protections worth pursuing.
 
 In this article, I lightly explain what a TEE is and walk through a new initiative by Flashbots and BeaverBuild to introduce verifiable priority ordering within L1 blocks. We will:
