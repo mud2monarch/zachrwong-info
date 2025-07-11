@@ -7,6 +7,18 @@
     * {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     }
+
+    :root{
+      --maincolor: #7D6231;
+      --bordercl: #8C5DA7;
+      --calloutColor:dodgerblue;
+      --hovercolor:#f4e6fc;
+      --darkMaincolor: #50fa7b;
+      --mainFont: #201526;
+      --backgroundColor: oldlace;
+      --font-heading: 'Roboto Mono', monospace;
+      --font-body: 'Fira Sans', sans-serif;
+    }
     
     /* Feather icons (override size) */
     .feather {
@@ -38,30 +50,41 @@
       border-bottom: none;
       margin: 0 0.25rem;
     }
-    .soc:hover{
+    /* .soc:hover{
       color: white;
+    } */
+ 
+    ::selection {
+      background: var(--maincolor);
+      color: #fff;
     }
 
     html {
-        color: #232333;
-        font-family: 'Roboto Mono', monospace;
+        color: #201526;
+        background-color: oldlace;
+        font-family: var(--font-heading);
         font-size: 1.12em;
         line-height: 1.6em;
     }
-    body { display: block; margin: 8px auto; max-width: 70ch; }
+
+    body {
+      display: block;
+      margin: 0.5em auto;
+      max-width: 68ch;
+    }
 
     a {
-    border-bottom: 3px solid red;
-    color: inherit;
-    text-decoration: none;
+      border-bottom: 3px solid #7d6231;
+      color: inherit;
+      text-decoration: none;
     }
     a:hover {
-        background-color: navy;
-        color: white;
+        background-color: #f4e6fc;
+        color: #000;
     }
 
-    li, dd { font-family: 'Fira Sans', sans-serif; }
-    p { font-family: 'Fira Sans', sans-serif; line-height: 1.5; }
+    li, dd { font-family: var(--font-body); line-height: 1.4;}
+    p { font-family: var(--font-body); line-height:1.4;}
     hr { border: none; height: 2px; background-color: lightgrey; width: 100%; margin: 30px auto; }
     
     .landing {
@@ -76,24 +99,71 @@
     .svg-container { width: 100%; max-width: 400px; display: inline-block; }
     .separator { letter-spacing: -9px; }
     
-    .links-container { font-size: 24px; margin: 20px; }
+    .links-container { font-size: 1.5em; margin: 1.25em; }
     .links-container a { text-decoration: none; margin: 0 10px; }
     
     .pfeiff { display: block; max-height: 640px; margin: 0 auto; border-radius: 0.4em; }
     .caption { text-align: center; font-style: italic; }
     
     .contact-info {
-        display: grid;
+        /* display: grid; */
         grid-template-columns: max-content auto;
-        gap: 0.25rem 1em; /* vertical and horizontal gaps */
+        gap: 0.5rem 1em; /* vertical and horizontal gaps */
     }
-    .contact-info dt { font-weight: bold; }
-    .contact-info dl { font-family: 'Fira Sans', sans-serif; margin: 0;}
+    .contact-info dt { font-weight: bold; margin-bottom: 0.5em; margin-top: 1em;}
+    .contact-info dl { font-family: var(--font-body); margin-bottom: 1em;}
 
-    .link-to-writing { width: fit-content; margin: 0 auto; }
+    .link-to-writing { width: fit-content; margin: 0 auto; text-align: center;}
     
     .writing-list dt { margin-bottom: 0.75em; }
     .writing-list dd { margin-bottom: 1.5em;}
+
+    footer {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      border-top: 0.4rem dotted var(--bordercl);
+      padding: 2rem 0;
+      margin-top: 2rem;
+      font-size: 0.8rem;
+      flex-wrap: wrap; /* optional: allows line wrap on small screens */
+      gap: 1rem;
+    }
+
+    footer > div:first-child {
+      display: flex;
+      align-items: center;
+    }
+
+    .footer-info {
+      margin: 0;
+      padding: 0;
+    }
+
+    .soc {
+      display: flex;
+      align-items: center;
+      border-bottom: none;
+    }
+
+    .border {
+      display: inline-block;
+      width: 1px;
+      height: 1rem;
+      background: currentColor;
+      margin: 0 0.5rem;
+      border: none; 
+    }
+    
+    .feather {
+      width: 16px;
+      height: 16px;
+      stroke: currentColor;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      fill: none;
+    }
 
   </style>
 </head>
@@ -122,7 +192,6 @@
       <a href="#about">About</a><span class="separator">|</span>
       <a href="#contact">Contact</a><span class="separator">|</span>
       <a href="#writing">Writing</a><span class="separator">|</span>
-      <!-- TODO: MAKE SURE THIS WORKS! -->
       <a href="/projects">Projects</a>
     </div>
   </div>
@@ -179,13 +248,13 @@
   <h2 id="writing">Writing</h2>
   <p>I enjoy writing long-form articles about crypto, public policy, and other topics. Here are some of my favorite pieces:</p>
   <dl class="writing-list">
-    <dt><a href="https://paragraph.com/@mud2monarch/believe-in-something-real">02/2025: Believe in Something Real</a></dt>
+    <dt><a href="/posts/believe-in-something-real/">02/2025: Believe in Something Real</a></dt>
     <dd>An exhortation to build and believe in something real.</dd>
-    <dt><a href="https://paragraph.com/@mud2monarch/disaggregating-decentralization">01/2025: Disaggregating Decentralization</a></dt>
+    <dt><a href="/posts/disaggregating-decentralization">01/2025: Disaggregating Decentralization</a></dt>
     <dd>I tease apart the term "decentralization" and identify the goods about which we actually care.</dd>
-    <dt><a href="A comprehensive explanation of SAB 121 and how it prevents safe crypto custody">07/2023: A comprehensive explanation of SAB 121 and how it prevents safe crypto custody</a></dt>
+    <dt><a href="/posts/comprehensive-explanation-sab-121/">07/2023: A comprehensive explanation of SAB 121 and how it prevents safe crypto custody</a></dt>
     <dd>My most popular piece ever. A long but consumable explanation of the SEC's Staff Accounting Bulletin 121, which at the time was an arcane, niche topic in crypto public policy.</dd>
-    <dt><a href="https://mud2monarch.medium.com/cryptography-to-cryptocurrency-a707079b898c">07/2022: Cryptography to Cryptocurrency | Lessons on Privacy and Policy from Steven Levy’s “Crypto”</a></dt>
+    <dt><a href="/posts/crypto-lessons-from-levy/">07/2022: Cryptography to Cryptocurrency | Lessons on Privacy and Policy from Steven Levy’s “Crypto”</a></dt>
     <dd>A book review that covers striking parallels between the history of cryptography development and regulation and today's events in crypto.</dd>
   </dl>
   <h3 class="link-to-writing"><a href="/writing">LINK TO ALL WRITING</a></h3>

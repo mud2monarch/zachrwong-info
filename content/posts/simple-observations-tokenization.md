@@ -2,7 +2,7 @@
 title = "Simple Observations about Asset Tokenization"
 date = 2025-06-04
 draft = false
-description = "Concise, contrarian observations about the state of asset tokenization as of June 2025."
+description = "Concise, contrarian observations about the state of asset tokenization today."
 tags = ['crypto', 'asset tokenization']
 keywords = ['crypto', 'real world assets', 'crypto RWA', 'asset tokenization']
 +++

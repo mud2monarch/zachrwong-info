@@ -3,6 +3,7 @@ title = "What happens to policy proposals, anyways?"
 date = 2021-11-21
 draft = false
 tags = ['policy', 'explainers', 'crypto']
+description = "A basic overview of the public policy process."
 +++
 {{< figure
   src="/2021/proposals_imageONE.webp"
@@ -10,10 +11,10 @@ tags = ['policy', 'explainers', 'crypto']
   class="img-caption"
   caption="A crypto user contemplates a future in which he and his frens have shirked informed, productive engagement with policymakers, who then pass legislation and regulations that disfavor crypto." >}}
 
-{{< callout type="custom" emoji="👀" title="Note June 2024" text="I wrote this pseudonymously when I worked at the CFPB, hence some of the disclaimers that may seem weird now (which were required by my agreement with my agency’s ethics office). Everything here still reflects my views though!." style="background-color: transparent; border: 3px solid #d340e0;" >}}
+{{< callout type="custom" emoji="👀" title="Note June 2024" text="I wrote this pseudonymously when I worked at the CFPB, hence some of the disclaimers that may seem weird now (which were required by my agreement with my agency’s ethics office). Everything here still reflects my views though!." style="background-color: transparent; border: 3px solid #8C5DA7;" >}}
 
 Several prominent crypto firms recently released proposals for how the US government should regulate cryptocurrencies and other related products. [^1] While the proposals created buzz on Twitter and [traditional media](https://www.wsj.com/articles/new-approach-regulating-crypto-bitcoin-coinbase-armstrong-digital-asset-policy-proposal-11634226117), I think it’s unclear to [most people](https://twitter.com/jeffjohnroberts/status/1460639126869450756?s=20) — to put it generously — what the actual effect of such policy proposals will be. In this post, I hope to answer this question and demystify the US federal policymaking process from the perspective of an insider.
-[^1]:*See*, e.g., [Coinbase - Digital Asset Policy Proposal: Safeguarding America’s Financial Leadership](https://blog.coinbase.com/digital-asset-policy-proposal-safeguarding-americas-financial-leadership-ce569c27d86c), [Jump Capital  - Stablecoins: The Impending Rise of a Multi-Trillion Dollar Market](https://jumpcap.com/insights/stablecoins-the-impending-rise-of-a-multi-trillion-dollar-market), [A16Z — An Agenda for the Future of the Internet](https://a16z.com/2021/10/13/an-agenda-for-the-future-of-the-internet/), [A16Z - Our Proposals to the Senate Banking Committee](https://a16z.com/2021/10/05/our-proposals-to-the-senate-banking-committee/),[FTX — Context on stablecoin regulation](https://blog.ftx.com/policy/context-stablecoin-regulation/), [FTX — Policy goals for crypto market regulation](https://blog.ftx.com/policy/policy-goals-market-regulation/), or [FTX — Areas for Crypto Regulation](https://blog.ftx.com/policy/areas-crypto-regulation/).
+[^1]:*See*, e.g., [Coinbase - Digital Asset Policy Proposal: Safeguarding America’s Financial Leadership](https://blog.coinbase.com/digital-asset-policy-proposal-safeguarding-americas-financial-leadership-ce569c27d86c), [Jump Capital  - Stablecoins: The Impending Rise of a Multi-Trillion Dollar Market](https://jumpcap.com/insights/stablecoins-the-impending-rise-of-a-multi-trillion-dollar-market), [A16Z — An Agenda for the Future of the Internet](https://a16z.com/2021/10/13/an-agenda-for-the-future-of-the-internet/), [A16Z - Our Proposals to the Senate Banking Committee](https://a16z.com/2021/10/05/our-proposals-to-the-senate-banking-committee/), [FTX — Context on stablecoin regulation](https://blog.ftx.com/policy/context-stablecoin-regulation/), [FTX — Policy goals for crypto market regulation](https://blog.ftx.com/policy/policy-goals-market-regulation/), or [FTX — Areas for Crypto Regulation](https://blog.ftx.com/policy/areas-crypto-regulation/).
 
 *I do or did work for a US federal financial regulator. I do or did work in Congress. These are my independent thoughts and do not necessarily represent the views of my employer.*
 

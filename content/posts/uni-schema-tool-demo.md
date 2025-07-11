@@ -3,7 +3,7 @@ title = "Hackathon project: extracting BigQuery table schemas for use with an LL
 date = 2025-05-23
 draft = false
 description = "Short write-up of a CLI tool to extract the schema of any BigQuery table into a text file for use with LLMs."
-tags = ['personal projects', 'coding']
+tags = ['personal projects', 'coding', 'artificial intelligence']
 keywords = ['Google BigQuery', 'Rust scripting', 'google cloud api', 'llm usage', 'llm data analysis']
 +++
 At Uniswap Labs’ biannual onsites, we dedicate most of the week to a company hackathon. It’s a time to think creatively, work on personal projects related to work, and collaborate with others. This time around, I wrote a short script to gather and coalesce BigQuery table schemas into a text document for use with an LLM. An executable, source code, and a usage guide are available on [my Github](https://github.com/mud2monarch/personal-projects/tree/main/uni-schema).

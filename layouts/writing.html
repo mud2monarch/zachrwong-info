@@ -1,0 +1,18 @@
+{{ define "main" }}
+  <h1>{{ .Title }}</h1>
+
+  <p>This page contains links to all of my long-form writing.</p>
+
+  <dl class="writing-list">
+    {{ range (sort (where site.RegularPages "Section" "posts") "Date" "desc") }}
+    <dt>
+        <a href="{{ .RelPermalink }}">{{ .Date | time.Format "01/2006" }}: {{ .Title }}</a>
+    </dt>
+    <dd>
+        {{ with .Params.description }}
+            {{ . }}
+        {{ end }}
+    </dd>
+    {{ end }}
+  </dl>
+{{ end }}

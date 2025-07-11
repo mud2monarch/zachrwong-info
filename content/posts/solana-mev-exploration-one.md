@@ -9,7 +9,7 @@ draft=false
 
 [Ghost](https://tryghost.xyz/graph) is a company that allows developers to create custom blockchain indexes using Solidity. They [recently published](https://x.com/0xGhostLogs/status/1843770831245050159) a dataset that contains 1.06m Solana transactions from September 2024 that they identified as atomic arbitrage\* transactions containing SOL/WSOL. This article quickly analyzes that dataset. Thanks to Ghost for making this available!
 
-{{< callout type="custom" emoji="🕵️" title="\"Atomic Arbitrage\"" text="Atomic arbitrage is a type of arbitrage that takes place within a single set of transactions. For example, someone may notice that the SOL <> USDC and USDC <> USDT and USDT <> SOL prices provide an arbitrage opportunity, and closes it in a single block/slot. This would NOT include CEX-DEX arbitrage, which does not/cannot occur atomically." style="background-color: transparent; border: 3px solid #d340e0;" >}}
+{{< callout type="custom" emoji="🕵️" title="\"Atomic Arbitrage\"" text="Atomic arbitrage is a type of arbitrage that takes place within a single set of transactions. For example, someone may notice that the SOL <> USDC and USDC <> USDT and USDT <> SOL prices provide an arbitrage opportunity, and closes it in a single block/slot. This would NOT include CEX-DEX arbitrage, which does not/cannot occur atomically." style="background-color: transparent; border: 3px solid #8C5DA7;" >}}
 
 _The notebook for this article is available on [my Github.](https://github.com/mud2monarch/personal-projects/blob/main/Solana_atomic_arbs/Solana_atomic_arbs.ipynb)_
 
