@@ -1,10 +1,12 @@
 +++
 title = "Writing"
-lastmod = 2025-06-30
+lastmod = 2025-09-01
 layout = "writing"
 +++
 
 <!-- This page contains links to all of my long-form writing.
+- [What I learned learning Rust](/posts/what-i-learned-learning-rust)
+- [My first foray into performance benchmarking](/posts/my-first-foray-into-benchmarking)
 - [Simple Observations about Asset Tokenization](/posts/simple-observations-tokenization)
 - [Extracting BigQuery table schemas for use with an LLM](/posts/uni-schema-tool-demo)
 - [A lightweight introduction to TEEs and how they're being used today](/posts/a-lightweight-introduction-to-TEEs)
